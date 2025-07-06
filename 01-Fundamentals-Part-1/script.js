@@ -174,6 +174,7 @@ console.log(
 );
  */
 
+/* 
 // Lecture: Strings and Template Literals
 const firstName = "Arnold";
 const job = "actor";
@@ -198,3 +199,47 @@ console.log(arnoldTemplateLiterals);
 console.log(`Told you
 I'll be back!
 Yodelayheehoo!`);
+ */
+
+// Lecture: Taking Decisions: if / else Statements
+// if-else statement is a control structure
+
+let sarahAge = 19;
+// const isOldEnough = sarahAge >= 18;
+
+// if (isOldEnough) {
+//   console.log("Sarah can start driving license 🚗");
+// }
+
+if (sarahAge >= 18) {
+  console.log("Sarah can start driving license 🚗");
+} else {
+  console.log(`Sarah is too young. Wait another ${18 - sarahAge} years.`);
+}
+
+sarahAge = 15;
+
+if (sarahAge >= 18) {
+  console.log("Sarah can start driving license 🚗");
+} else {
+  console.log(`Sarah is too young. Wait another ${18 - sarahAge} years.`);
+}
+
+let birthYear = 1995;
+let century;
+
+if (birthYear < 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+
+birthYear = 2012;
+
+if (birthYear < 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
