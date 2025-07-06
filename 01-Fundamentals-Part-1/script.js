@@ -15,6 +15,7 @@ let firstName = "Mihai";
 console.log(firstName);
  */
 
+/* 
 // Lecture: Data Types
 let piName = "PI";
 let piValue = 3.14;
@@ -61,3 +62,26 @@ console.log(year + " (" + typeof year + ")");
 // Bug: typeof null returns object, which has no sense,
 // the bug is maintained for legacy reasons
 console.log(null + " (" + typeof null + ")");
+ */
+
+// Lecture: let, const and var
+let age = 68;
+age = 69;
+
+const yearOfBirth = 1969;
+
+// Note: error occurs if const variable is not defined at declaration or
+// there is an attempt to change it dynamically
+// const dayOfBirth;
+// yearOfBirth = 1970;
+
+// Tip: use const by default;
+// change it to let only when you are sure that the variable will change
+
+// Avoid declaring variables using var
+var job = "programmer";
+job = "investor";
+
+// Avoid declaring variables without let (even if it works)
+lastName = "Chikibriki";
+console.log(lastName);
