@@ -1,3 +1,5 @@
+// Fundamentals Part 1
+
 /*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";

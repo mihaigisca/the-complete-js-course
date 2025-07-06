@@ -146,6 +146,7 @@ console.log(ageSarah >= 18);
 const isFullAge = ageSarah >= 18;
  */
 
+/* 
 // Lecture: Operator Precedence
 // MDN resource: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
 const currentYear = 2037;
@@ -171,3 +172,4 @@ const averageAgeWithParenthesis = (ageJonas + ageSarah) / 2;
 console.log(
   "Average age using parenthesis [(a+b)/2]: " + averageAgeWithParenthesis
 );
+ */
