@@ -64,6 +64,7 @@ console.log(year + " (" + typeof year + ")");
 console.log(null + " (" + typeof null + ")");
  */
 
+/* 
 // Lecture: let, const and var
 let age = 68;
 age = 69;
@@ -85,3 +86,60 @@ job = "investor";
 // Avoid declaring variables without let (even if it works)
 lastName = "Chikibriki";
 console.log(lastName);
+ */
+
+// Lecture: Basic Operators
+// Math operators
+const currentYear = 2037;
+const ageJonas = currentYear - 1991;
+const ageSarah = currentYear - 2001;
+console.log(ageJonas, ageSarah);
+
+console.log(ageJonas * 2, ageSarah / 2, 2 ** 3);
+// 2 ** 3 <=> 2^3 <=> 2*2*2
+
+const firstName = "Chiki";
+const lastName = "Briki";
+console.log(firstName, lastName);
+console.log(firstName + lastName);
+console.log(firstName + " " + lastName);
+
+// Assignment operators
+// x += 5 <=> x = x + 5
+const plusOperator = 10 + 5;
+console.log("Plus operator: " + plusOperator);
+let plusEqualOperator = 10;
+plusEqualOperator += 5;
+console.log("Plus-equal operator: " + plusEqualOperator);
+
+const minusOperator = 10 - 5;
+console.log("Minus operator: " + minusOperator);
+let minusEqualOperator = 10;
+minusEqualOperator -= 5;
+console.log("Minus-equal operator: " + minusEqualOperator);
+
+const multiplicationOperator = 10 * 5;
+console.log("Multiplication operator: " + multiplicationOperator);
+let multiplicationEqualOperator = 10;
+multiplicationEqualOperator *= 5;
+console.log("Multiplication-equal operator: " + multiplicationEqualOperator);
+
+const divisionOperator = 10 / 5;
+console.log("Division operator: " + divisionOperator);
+let divisionEqualOperator = 10;
+divisionEqualOperator /= 5;
+console.log("Division-equal operator: " + divisionEqualOperator);
+
+let increment = 5;
+console.log("Value before incrementing: " + increment);
+increment++;
+console.log("Value after incrementing: " + increment);
+console.log("Value before decrementing: " + increment);
+increment--;
+console.log("Value after decrementing: " + increment);
+
+// Comparison operators
+console.log(ageJonas > ageSarah);
+console.log(ageSarah >= 18);
+
+const isFullAge = ageSarah >= 18;
