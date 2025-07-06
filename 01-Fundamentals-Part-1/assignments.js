@@ -1,6 +1,5 @@
 // Fundamentals Part 1
 
-/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -61,4 +60,8 @@ console.log(
     language +
     ". Ask Russian Federation why."
 );
- */
+
+// Lecture: String and Template Literals
+console.log(
+  `${country} is in ${continent}, but not all of its ${population} million people speak ${language}. Ask Russian Federation why.`
+);

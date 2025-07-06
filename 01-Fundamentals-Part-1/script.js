@@ -201,6 +201,7 @@ I'll be back!
 Yodelayheehoo!`);
  */
 
+/* 
 // Lecture: Taking Decisions: if / else Statements
 // if-else statement is a control structure
 
@@ -243,3 +244,4 @@ if (birthYear < 2000) {
   century = 21;
 }
 console.log(century);
+ */
