@@ -246,6 +246,7 @@ if (birthYear < 2000) {
 console.log(century);
  */
 
+/*
 // Lecture: Type Conversion and Coercion
 // Type conversion (manual conversion)
 const year = "1991"; // string declaration
@@ -270,3 +271,43 @@ console.log("23" / "2");
 console.log("1" + 1 - 1); // "1" + 1 --> "11" - 1 --> 10
 console.log(2 + 3 + 4 + "5"); // 2 + 3 + 4 --> 9 + "5" --> "95"
 console.log("10" - "4" - "3" - 2 + "5"); // 10 - 4 --> 6 - 3 --> 3 - 2 --> 1 + "5" --> "15"
+ */
+
+// Lecture: Truthy and Falsy Values
+// falsy values - values that will convert to false when converting them to boolean
+// 5 falsy values: 0, "", undefiend, null, NaN
+console.log(`Converting falsy values to boolean
+0: ${Boolean(0)},
+empty string: ${Boolean("")},
+undefined: ${Boolean(undefined)},
+null: ${Boolean(null)},
+NaN: ${Boolean(NaN)}`);
+
+// Boolean coercion is performed when using
+// - logical contexts (e.g., if-else condition)
+// - logical operators (next lecture)
+let money = 0;
+if (money) {
+  console.log("Don't spend them all!");
+} else {
+  console.log("You should get a job!");
+}
+
+let height;
+if (height) {
+  console.log("Height is surely defined!");
+} else {
+  console.log("Height is not defined in this case!");
+}
+
+console.log(`Converting truthy values to boolean
+1: ${Boolean(1)},
+non-empty string: ${Boolean("Truthy")},
+object: ${Boolean({})}`);
+
+money = 1;
+if (money) {
+  console.log("Don't spend them all!");
+} else {
+  console.log("You should get a job!");
+}
