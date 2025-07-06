@@ -22,9 +22,9 @@ console.log(
   "John weighs " + massJohn + " kg and is " + heightJohn + " m tall."
 );
 
-BMIMark = massMark * (heightMark * heightMark);
+BMIMark = massMark / (heightMark * heightMark);
 // BMIJohn = massJohn * (heightJohn ** 2);
-BMIJohn = massJohn * (heightJohn * heightJohn);
+BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log("Mark's BMI: " + BMIMark);
 console.log("John's BMI: " + BMIJohn);
 console.log("Is Mark's BMI higher than John's BMI: ", BMIMark > BMIJohn);
@@ -42,9 +42,9 @@ console.log(
   "John weighs " + massJohn + " kg and is " + heightJohn + " m tall."
 );
 
-BMIMark = massMark * (heightMark * heightMark);
+BMIMark = massMark / (heightMark * heightMark);
 // BMIJohn = massJohn * (heightJohn ** 2);
-BMIJohn = massJohn * (heightJohn * heightJohn);
+BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log("Mark's BMI: " + BMIMark);
 console.log("John's BMI: " + BMIJohn);
 console.log("Is Mark's BMI higher than John's BMI: ", BMIMark > BMIJohn);
