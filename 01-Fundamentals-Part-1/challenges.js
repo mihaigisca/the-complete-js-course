@@ -1,5 +1,5 @@
 // Fundamentals Part 1
-
+/* 
 // Challenge #1
 
 // Body Mass Index formula:
@@ -48,3 +48,4 @@ BMIJohn = massJohn / (heightJohn * heightJohn);
 console.log("Mark's BMI: " + BMIMark);
 console.log("John's BMI: " + BMIJohn);
 console.log("Is Mark's BMI higher than John's BMI: ", BMIMark > BMIJohn);
+*/

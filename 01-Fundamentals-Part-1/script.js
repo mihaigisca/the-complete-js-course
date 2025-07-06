@@ -173,3 +173,28 @@ console.log(
   "Average age using parenthesis [(a+b)/2]: " + averageAgeWithParenthesis
 );
  */
+
+// Lecture: Strings and Template Literals
+const firstName = "Arnold";
+const job = "actor";
+const birthYear = 1947;
+const currentYear = 2025;
+
+const arnold =
+  "I'm " +
+  firstName +
+  ", a " +
+  (currentYear - birthYear) +
+  " year-old " +
+  job +
+  "! I'll be back!";
+console.log(arnold);
+
+const arnoldTemplateLiterals = `I'm ${firstName}, a ${
+  currentYear - birthYear
+} year-old ${job}!`;
+console.log(arnoldTemplateLiterals);
+// `` can be used for regular and multi-line strings.
+console.log(`Told you
+I'll be back!
+Yodelayheehoo!`);
