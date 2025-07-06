@@ -1,3 +1,4 @@
+/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -58,3 +59,4 @@ console.log(
     language +
     ". Ask Russian Federation why."
 );
+ */

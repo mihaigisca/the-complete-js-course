@@ -88,6 +88,7 @@ lastName = "Chikibriki";
 console.log(lastName);
  */
 
+/* 
 // Lecture: Basic Operators
 // Math operators
 const currentYear = 2037;
@@ -143,3 +144,30 @@ console.log(ageJonas > ageSarah);
 console.log(ageSarah >= 18);
 
 const isFullAge = ageSarah >= 18;
+ */
+
+// Lecture: Operator Precedence
+// MDN resource: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence
+const currentYear = 2037;
+const ageJonas = currentYear - 1991;
+const ageSarah = currentYear - 2001;
+
+// In the attached resource, there is a table of operators' precedence
+// In that table, we can see that the subtraction (minus) operator has a higher precedence than greater than (>) operator.
+// This is why the subtractions are performed firstly, and only then the comparison
+console.log(currentYear - 1991 > currentYear - 2001);
+
+let x, y;
+x = y = 1 + 5 * 2; // 5 * 2 = 10 --> 10 + 1 = 11 --> y = 11 --> x = y
+console.log(x, y);
+
+console.log("Ages: ", ageJonas, ageSarah);
+const averageAgeWithoutParenthesis = ageJonas + ageSarah / 2;
+console.log(
+  "Average age without using parenthesis (a+b/2): " +
+    averageAgeWithoutParenthesis
+);
+const averageAgeWithParenthesis = (ageJonas + ageSarah) / 2;
+console.log(
+  "Average age using parenthesis [(a+b)/2]: " + averageAgeWithParenthesis
+);
