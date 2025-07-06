@@ -50,6 +50,7 @@ console.log("John's BMI: " + BMIJohn);
 console.log("Is Mark's BMI higher than John's BMI: ", BMIMark > BMIJohn);
 */
 
+/*
 // Challenge #2
 
 // Use if-else statements, simple strings and template literals
@@ -92,3 +93,4 @@ if (BMIMark > BMIJohn) {
   console.log("John's BMI is higher than Mark's!");
   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
 }
+ */

@@ -245,3 +245,28 @@ if (birthYear < 2000) {
 }
 console.log(century);
  */
+
+// Lecture: Type Conversion and Coercion
+// Type conversion (manual conversion)
+const year = "1991"; // string declaration
+console.log(year + 18); // string concatenation
+console.log(year, Number(year)); // convert string to number without changing the variable itself
+console.log(Number(year) + 18); // adding of two numbers
+
+// attempting to convert a string that is not a number to a number will result in NaN (Not a Number)
+console.log(Number("This is not a number"));
+console.log(typeof NaN); // results in number, which means that NaN is an invalid number
+
+console.log(String(23), 23);
+
+// Type coercion (js behind-the-scenes conversion)
+// whenever there is a "+" between string and number, number is converted to string.
+console.log("I am " + 23 + " years old.");
+// whenever there is a "-, * or /" between string and number, string is converted to number.
+console.log("23" - "10" - 3);
+console.log("23" * "2");
+console.log("23" / "2");
+
+console.log("1" + 1 - 1); // "1" + 1 --> "11" - 1 --> 10
+console.log(2 + 3 + 4 + "5"); // 2 + 3 + 4 --> 9 + "5" --> "95"
+console.log("10" - "4" - "3" - 2 + "5"); // 10 - 4 --> 6 - 3 --> 3 - 2 --> 1 + "5" --> "15"
