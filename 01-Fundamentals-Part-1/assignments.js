@@ -29,6 +29,8 @@ console.log("Language: " + language + " (" + typeof language + ")");
 
 // Lecture: Basic Operators
 console.log("Halved population (in millions): " + population / 2);
+let populationOfFinlandInMillions = 6.0;
+let averagePopulationOfACountryInMillions = 33.0;
 
 // doing this as directly adding 0.000001 results in 2.458001000003
 let tempPopulation = population;
@@ -40,14 +42,18 @@ console.log("Incremented population: " + tempPopulation);
 console.log(
   "Does " +
     country +
-    " have a bigger population than the population of Finland (which is 6 million people)? Answer: " +
-    (population > 6.0)
+    " have a bigger population than the population of Finland (which is " +
+    populationOfFinlandInMillions +
+    " million people)? Answer: " +
+    (population > populationOfFinlandInMillions)
 );
 console.log(
   "Does " +
     country +
-    " have a smaller population than the average population of a country (which is 30 million people)? Answer: " +
-    (population < 30.0)
+    " have a smaller population than the average population of a country (which is " +
+    averagePopulationOfACountryInMillions +
+    " million people)? Answer: " +
+    (population < averagePopulationOfACountryInMillions)
 );
 
 console.log(
@@ -65,3 +71,18 @@ console.log(
 console.log(
   `${country} is in ${continent}, but not all of its ${population} million people speak ${language}. Ask Russian Federation why.`
 );
+
+// Lecture: Taking Decisions: if / else Statements
+if (population > averagePopulationOfACountryInMillions) {
+  console.log(
+    `The population of ${country} is ${
+      population - averagePopulationOfACountryInMillions
+    } above average.`
+  );
+} else {
+  console.log(
+    `The population of ${country} is ${
+      averagePopulationOfACountryInMillions - population
+    } below average.`
+  );
+}
