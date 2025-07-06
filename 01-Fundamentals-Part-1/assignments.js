@@ -1,5 +1,6 @@
 // Fundamentals Part 1
 
+/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -86,3 +87,4 @@ if (population > averagePopulationOfACountryInMillions) {
     } below average.`
   );
 }
+*/
