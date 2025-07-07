@@ -272,7 +272,7 @@ console.log("1" + 1 - 1); // "1" + 1 --> "11" - 1 --> 10
 console.log(2 + 3 + 4 + "5"); // 2 + 3 + 4 --> 9 + "5" --> "95"
 console.log("10" - "4" - "3" - 2 + "5"); // 10 - 4 --> 6 - 3 --> 3 - 2 --> 1 + "5" --> "15"
  */
-
+/* 
 // Lecture: Truthy and Falsy Values
 // falsy values - values that will convert to false when converting them to boolean
 // 5 falsy values: 0, "", undefiend, null, NaN
@@ -310,4 +310,42 @@ if (money) {
   console.log("Don't spend them all!");
 } else {
   console.log("You should get a job!");
+}
+*/
+
+// Lecture: Equality Operators: == vs. ===
+const age = 18;
+if (age === 18) {
+  console.log("You just became an adult!");
+}
+console.log("18 === 18 --> ", 18 === 18, "strict equality");
+console.log('"18"' + " === 18 --> ", "18" === 18, "strict equality");
+console.log("18 == 18 --> ", 18 == 18, "loose equality");
+console.log('"18"' + " == 18 --> ", "18" == 18, "loose equality");
+
+// Tip: always use strict equality operator (===). If you need conversion, convert manually
+
+// const favNumber = prompt("What is your favorite number?");
+// console.log(favNumber);
+// console.log(typeof favNumber);
+
+// if (favNumber == 69) {
+//   console.log("I see what you did there ;)");
+// }
+
+const favNumber = Number(prompt("What is your favorite number?"));
+console.log(favNumber);
+console.log(typeof favNumber);
+
+if (favNumber === 69) {
+  console.log("I see what you did there ;)");
+} else if (favNumber === 13) {
+  console.log("Lucky one, ain't ya?");
+} else {
+  console.log("Yeah, whatever =/");
+}
+
+// Tip: as with ===, always use strict different operator !==
+if (favNumber !== 10) {
+  console.log("You could have also said 10...");
 }

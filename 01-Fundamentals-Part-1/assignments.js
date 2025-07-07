@@ -97,3 +97,42 @@ console.log("19" - "13" + 17); // -> 19 - 13 --> 6 + 17 --> 23
 console.log("123" < 57); // -> false
 console.log(5 + 6 + "4" + 9 - 4 - 2); // -> 5 + 6 --> 11 + "4" --> "114" + 9 --> "1149" - 4 --> 1145 - 2 --> 1143
  */
+
+// Lecture: Equality Operators: == vs. ===
+// this returns a string
+// const numNeighbours = prompt(
+//   "How many neighbour countries does your contry have?"
+// );
+
+// loose equality operator converts string to number, thus "1" equals 1
+// if (numNeighbours == 1) {
+//   console.log("Only 1 border!");
+// } else {
+//   console.log("No borders");
+// }
+
+// strict equality operator does not make conversion, thus "1" does not equal 1
+// if (numNeighbours === 1) {
+//   console.log("Only 1 border!");
+// } else {
+//   console.log("No borders");
+// }
+
+// this returns a number (NaN if failed to convert string to number)
+const numNeighbours = Number(
+  prompt("How many neighbour countries does your contry have?")
+);
+
+if (numNeighbours === NaN) {
+  console.log("Something went wrong!");
+} else if (numNeighbours < 0) {
+  console.log("Silly, there cannot be negative borders ;)");
+} else if (numNeighbours % 1 > 0) {
+  console.log("Silly, there cannot be decimal borders ;)");
+} else if (numNeighbours === 0) {
+  console.log("No borders");
+} else if (numNeighbours === 1) {
+  console.log("Only 1 border!");
+} else {
+  console.log("More than one border!");
+}
