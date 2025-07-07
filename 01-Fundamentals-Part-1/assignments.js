@@ -98,6 +98,7 @@ console.log("123" < 57); // -> false
 console.log(5 + 6 + "4" + 9 - 4 - 2); // -> 5 + 6 --> 11 + "4" --> "114" + 9 --> "1149" - 4 --> 1145 - 2 --> 1143
  */
 
+/* 
 // Lecture: Equality Operators: == vs. ===
 // this returns a string
 // const numNeighbours = prompt(
@@ -136,3 +137,4 @@ if (numNeighbours === NaN) {
 } else {
   console.log("More than one border!");
 }
+ */

@@ -313,6 +313,7 @@ if (money) {
 }
 */
 
+/* 
 // Lecture: Equality Operators: == vs. ===
 const age = 18;
 if (age === 18) {
@@ -349,3 +350,10 @@ if (favNumber === 69) {
 if (favNumber !== 10) {
   console.log("You could have also said 10...");
 }
+ */
+
+// Lecture: Boolean Logic
+// Basic boolean operators: and, or & not
+// - and (&&) - A && B --> both A and B true -> condition is true, false otherwise
+// - or (||) - A || B --> at least one true -> condition is true, false otherwise
+// - not (!) --> inverts boolean value
