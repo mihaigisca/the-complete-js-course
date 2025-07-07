@@ -1,6 +1,5 @@
 // Fundamentals Part 1
 
-/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -28,6 +27,7 @@ console.log("Language: " + language + " (" + typeof language + ")");
 // const variable cannot be changed: developer tools console error
 // country = "RSSM";
 
+/* 
 // Lecture: Basic Operators
 console.log("Halved population (in millions): " + population / 2);
 let populationOfFinlandInMillions = 6.0;
@@ -138,3 +138,10 @@ if (numNeighbours === NaN) {
   console.log("More than one border!");
 }
  */
+
+// Lecture: Logical Operators
+if (language === "English" && population < 50.0 && !isIsland) {
+  console.log(`You should live in ${country} :)`);
+} else {
+  console.log(`${country} does not meet your criteria :(`);
+}

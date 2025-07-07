@@ -357,3 +357,51 @@ if (favNumber !== 10) {
 // - and (&&) - A && B --> both A and B true -> condition is true, false otherwise
 // - or (||) - A || B --> at least one true -> condition is true, false otherwise
 // - not (!) --> inverts boolean value
+
+// Lecture: Logical Operators
+let hasDriversLicense = true; // A
+let hasGoodVision = true; // B
+console.log(hasDriversLicense && hasGoodVision);
+
+hasGoodVision = false;
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+// const shouldDrive = hasDriversLicense && hasGoodVision;
+
+// if (shouldDrive) {
+//   console.log("Sarah is able to drive");
+// } else {
+//   console.log("Someone else should drive");
+// }
+
+// Usually, the condition is inserted directly into the if parenthesis
+if (hasDriversLicense && hasGoodVision) {
+  console.log("Sarah is able to drive");
+} else {
+  console.log("Someone else should drive");
+}
+
+let isTired = true; // C
+console.log(hasDriversLicense || hasGoodVision || isTired);
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+isTired = false;
+console.log(hasDriversLicense || hasGoodVision || isTired);
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+hasGoodVision = true;
+isTired = true;
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log("Sarah is able to drive");
+} else {
+  console.log("Someone else should drive");
+}
+
+isTired = false;
+if (hasDriversLicense && hasGoodVision && !isTired) {
+  console.log("Sarah is able to drive");
+} else {
+  console.log("Someone else should drive");
+}
