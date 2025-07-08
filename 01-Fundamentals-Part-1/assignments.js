@@ -1,5 +1,6 @@
 // Fundamentals Part 1
 
+/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -27,7 +28,6 @@ console.log("Language: " + language + " (" + typeof language + ")");
 // const variable cannot be changed: developer tools console error
 // country = "RSSM";
 
-/* 
 // Lecture: Basic Operators
 console.log("Halved population (in millions): " + population / 2);
 let populationOfFinlandInMillions = 6.0;
@@ -87,18 +87,14 @@ if (population > averagePopulationOfACountryInMillions) {
     } below average.`
   );
 }
-*/
 
-/* 
 // Lecture: Type Conversion and Coercion
 console.log("9" - "5"); // -> 9 - 5 --> 4
 console.log("19" - "13" + "17"); // -> 19 - 13 --> 6 + "17" --> "617"
 console.log("19" - "13" + 17); // -> 19 - 13 --> 6 + 17 --> 23
 console.log("123" < 57); // -> false
 console.log(5 + 6 + "4" + 9 - 4 - 2); // -> 5 + 6 --> 11 + "4" --> "114" + 9 --> "1149" - 4 --> 1145 - 2 --> 1143
- */
 
-/* 
 // Lecture: Equality Operators: == vs. ===
 // this returns a string
 // const numNeighbours = prompt(
@@ -137,7 +133,6 @@ if (numNeighbours === NaN) {
 } else {
   console.log("More than one border!");
 }
- */
 
 // Lecture: Logical Operators
 if (language === "English" && population < 50.0 && !isIsland) {
@@ -145,3 +140,4 @@ if (language === "English" && population < 50.0 && !isIsland) {
 } else {
   console.log(`${country} does not meet your criteria :(`);
 }
+ */

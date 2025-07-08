@@ -94,3 +94,72 @@ if (BMIMark > BMIJohn) {
   console.log(`John's BMI (${BMIJohn}) is higher than Mark's (${BMIMark})!`);
 }
  */
+
+// Challenge #3
+console.log("TEST DATA 1");
+let scoreDolphins = (96 + 108 + 89) / 3;
+let scoreKoalas = (88 + 91 + 110) / 3;
+console.log(
+  `Dolphins average score --> ${scoreDolphins} vs. ${scoreKoalas} <-- Koalas average score`
+);
+
+if (scoreDolphins > scoreKoalas) {
+  console.log("Dolphins win the trophy");
+} else if (scoreDolphins < scoreKoalas) {
+  console.log("Koalas win the trophy");
+} else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100) {
+  console.log("Both win the trophy");
+} else {
+  console.log("No one wins the trophy");
+}
+
+console.log("TEST DATA 2");
+scoreDolphins = (94 + 106 + 87) / 3;
+scoreKoalas = (88 + 91 + 110) / 3;
+console.log(
+  `Dolphins average score --> ${scoreDolphins} vs. ${scoreKoalas} <-- Koalas average score`
+);
+
+if (scoreDolphins > scoreKoalas) {
+  console.log("Dolphins win the trophy");
+} else if (scoreDolphins < scoreKoalas) {
+  console.log("Koalas win the trophy");
+} else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100) {
+  console.log("Both win the trophy");
+} else {
+  console.log("No one wins the trophy");
+}
+
+console.log("TEST DATA 3");
+scoreDolphins = (97 + 108 + 100) / 3;
+scoreKoalas = (93 + 97 + 115) / 3;
+console.log(
+  `Dolphins average score --> ${scoreDolphins} vs. ${scoreKoalas} <-- Koalas average score`
+);
+
+if (scoreDolphins > scoreKoalas) {
+  console.log("Dolphins win the trophy");
+} else if (scoreDolphins < scoreKoalas) {
+  console.log("Koalas win the trophy");
+} else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100) {
+  console.log("Both win the trophy");
+} else {
+  console.log("No one wins the trophy");
+}
+
+console.log("TEST DATA 4");
+scoreDolphins = (95 + 106 + 88) / 3;
+scoreKoalas = (88 + 91 + 110) / 3;
+console.log(
+  `Dolphins average score --> ${scoreDolphins} vs. ${scoreKoalas} <-- Koalas average score`
+);
+
+if (scoreDolphins > scoreKoalas) {
+  console.log("Dolphins win the trophy");
+} else if (scoreDolphins < scoreKoalas) {
+  console.log("Koalas win the trophy");
+} else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100) {
+  console.log("Both win the trophy");
+} else {
+  console.log("No one wins the trophy");
+}

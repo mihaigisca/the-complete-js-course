@@ -358,6 +358,7 @@ if (favNumber !== 10) {
 // - or (||) - A || B --> at least one true -> condition is true, false otherwise
 // - not (!) --> inverts boolean value
 
+/* 
 // Lecture: Logical Operators
 let hasDriversLicense = true; // A
 let hasGoodVision = true; // B
@@ -405,3 +406,4 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 } else {
   console.log("Someone else should drive");
 }
+ */
