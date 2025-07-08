@@ -407,3 +407,53 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
   console.log("Someone else should drive");
 }
  */
+
+// Lecture: The switch Statement
+const day = "monday";
+switch (day) {
+  case "monday": // day === monday
+  case "tuesday": // cases without breaks will continue execution to following case
+  case "thursday":
+  case "friday":
+    console.log("Learn JS");
+    console.log("Go to gym");
+    break; // stops execution and exits switch statement
+  case "wednesday":
+    console.log("Learn JS");
+    console.log("Play football");
+    break;
+  case "saturday":
+    console.log("Learn JS");
+    console.log("Go to gym");
+    console.log("Clean home");
+  case "sunday":
+    console.log("Learn JS");
+    console.log("Prepare food");
+    console.log("Jog");
+    break;
+  default: // safety case to process a value that was not specified by cases
+    console.log("Not a valid day");
+}
+
+if (
+  day === "monday" ||
+  day === "tuesday" ||
+  day === "thursday" ||
+  day === "friday"
+) {
+  console.log("Learn JS");
+  console.log("Go to gym");
+} else if (day === "wednesday") {
+  console.log("Learn JS");
+  console.log("Play football");
+} else if (day === "saturday") {
+  console.log("Learn JS");
+  console.log("Go to gym");
+  console.log("Clean home");
+} else if (day === "sunday") {
+  console.log("Learn JS");
+  console.log("Prepare food");
+  console.log("Jog");
+} else {
+  console.log("Not a valid day");
+}

@@ -1,6 +1,5 @@
 // Fundamentals Part 1
 
-/*
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -28,6 +27,7 @@ console.log("Language: " + language + " (" + typeof language + ")");
 // const variable cannot be changed: developer tools console error
 // country = "RSSM";
 
+/*
 // Lecture: Basic Operators
 console.log("Halved population (in millions): " + population / 2);
 let populationOfFinlandInMillions = 6.0;
@@ -141,3 +141,25 @@ if (language === "English" && population < 50.0 && !isIsland) {
   console.log(`${country} does not meet your criteria :(`);
 }
  */
+
+// Lecture: The switch Statement
+console.log(`Language: ${language}`);
+switch (language) {
+  case "Chinese":
+    console.log("MOST number of native speakers!");
+    break;
+  case "Spanish":
+    console.log("2nd place in number of native speakers");
+    break;
+  case "English":
+    console.log("3rd place");
+    break;
+  case "Hindi":
+    console.log("Number 4");
+    break;
+  case "Arabic":
+    console.log("5th most spoken language");
+    break;
+  default:
+    console.log("Great language too :D");
+}
