@@ -465,6 +465,7 @@ if (
 // Statement - action (e.g., if-else, switch)
 // console.log(`${if (true)}`) generates error as if is not expexted in template literal
 
+/* 
 // Lecture: The Conditional (Ternary) Operator
 // conditional (ternary) operator is like an if-else statement, but all in one line. It is used to take quick decisions and is not meant to replace big if-else statements
 // structure
@@ -491,3 +492,4 @@ if (age >= 18) {
 
 // Ternary operator is an expression and can be inserted in template literal
 console.log(`I like to drink ${age >= 18 ? "wine" : "water"}`);
+ */

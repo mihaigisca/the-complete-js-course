@@ -164,3 +164,28 @@ if (scoreDolphins > scoreKoalas) {
   console.log("No one wins the trophy");
 }
  */
+
+// Challenge #4
+let bill;
+let tip;
+
+console.log("TEST DATA 1");
+bill = 275;
+tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);
+
+console.log("TEST DATA 2");
+bill = 40;
+tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);
+
+console.log("TEST DATA 3");
+bill = 430;
+tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+console.log(
+  `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`
+);

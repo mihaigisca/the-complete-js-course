@@ -166,6 +166,7 @@ switch (language) {
 }
  */
 
+/* 
 // Lecture: The Conditional (Ternary) Operator
 // population > 33
 //   ? console.log(`Population of ${country} is above average`)
@@ -184,3 +185,4 @@ console.log(
     tempPopulation > 33 ? "above" : "below"
   } average`
 );
+ */
