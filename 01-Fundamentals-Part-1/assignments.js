@@ -142,6 +142,7 @@ if (language === "English" && population < 50.0 && !isIsland) {
 }
  */
 
+/* 
 // Lecture: The switch Statement
 console.log(`Language: ${language}`);
 switch (language) {
@@ -163,3 +164,23 @@ switch (language) {
   default:
     console.log("Great language too :D");
 }
+ */
+
+// Lecture: The Conditional (Ternary) Operator
+// population > 33
+//   ? console.log(`Population of ${country} is above average`)
+//   : console.log(`Population of ${country} is below average`);
+
+let tempPopulation = 13;
+console.log(
+  `Population of ${country} is ${
+    tempPopulation > 33 ? "above" : "below"
+  } average`
+);
+
+tempPopulation = 130;
+console.log(
+  `Population of ${country} is ${
+    tempPopulation > 33 ? "above" : "below"
+  } average`
+);
