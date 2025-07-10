@@ -1,5 +1,6 @@
 // Fundamentals Part 1
 
+/* 
 // Lecture: Values and Variables
 const country = "Republic of Moldova";
 const continent = "Europe";
@@ -26,6 +27,7 @@ console.log("Language: " + language + " (" + typeof language + ")");
 
 // const variable cannot be changed: developer tools console error
 // country = "RSSM";
+ */
 
 /*
 // Lecture: Basic Operators
