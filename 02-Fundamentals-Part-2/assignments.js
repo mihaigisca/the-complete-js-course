@@ -14,7 +14,7 @@ console.log(romaniaDescription);
 const usaDescription = describeCountry("USA", 340.1, "Washington DC");
 console.log(usaDescription);
  */
-
+/* 
 // Lecture: Function Declarations vs. Expressions
 function percentageOfWorld1(populationInMillions) {
     return populationInMillions * 100.0 / 7900;
@@ -36,3 +36,10 @@ console.log(`Asia population is about ${percentageOfWorld2(4694.6)}% of the worl
 console.log(`North America population is about ${percentageOfWorld2(528.7)}% of the world population.`);
 console.log(`South America population is about ${percentageOfWorld2(442)}% of the world population.`);
 console.log(`Australia population is about ${percentageOfWorld2(26.6)}% of the world population.`);
+ */
+
+// Lecture: Arrow Functions
+const percentageOfWorld3 = populationInMillions => populationInMillions * 100.0 / 7900;
+console.log(`România population is about ${percentageOfWorld3(19.06)}% of the world population.`);
+console.log(`Russian Federation population is about ${percentageOfWorld3(143.8)}% of the world population.`);
+console.log(`North Korea population is about ${percentageOfWorld3(26.42)}% of the world population.`);

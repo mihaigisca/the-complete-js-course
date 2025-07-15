@@ -49,7 +49,7 @@ console.log(appleOrangeJuice);
 
 // DRY principle - Don't Repeat Yourself (i.e., using functions is one way to achieve that)
  */
-
+/* 
 // Lecture: Function Declarations vs. Expressions
 // Function declaration
 // function CAN be called before it is declared
@@ -72,3 +72,30 @@ const calcAge2 = function (birthYear) {
 const age2 = calcAge2(1998);
 
 console.log(age1, age2);
+*/
+
+// Lecture: Arrow Functions
+// one parameter, one line of code
+const calcAge3 = birthYear => 2069 - birthYear;
+console.log (calcAge3(1998));
+
+// one parameter, multiple lines of code
+const yearsUntilRetirement1 = birthYear => {
+    // const age = 2069 - birthYear;
+    // const retirement = 65 - age;
+    // return retirement;
+
+    return 65 - calcAge3(birthYear);
+}
+console.log(`Years until retirement: ${yearsUntilRetirement1(2005)}`);
+
+// two parameters, multiple lines of code
+const yearsUntilRetirement2 = (birthYear, firstName) => {
+    // const age = 2069 - birthYear;
+    // const retirement = 65 - age;
+    // return `${firstName} retires in ${retirement} years.`;
+    
+    return `${firstName} retires in ${65 - calcAge3(birthYear)} years.`;
+}
+console.log(yearsUntilRetirement2(2005, "Mike"));
+console.log(yearsUntilRetirement2(2010, "Alex"));
