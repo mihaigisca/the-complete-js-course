@@ -14,6 +14,7 @@ if (hasDriversLicense) console.log("I can drive ^_^");
 // const interface = "Audio";
 // const private = 534;
 
+/* 
 // Lecture: Functions
 // function function_name() {
 //   function body
@@ -22,7 +23,7 @@ function logger() {
     console.log("My name is Mike")
 }
 
-// invoking / calling / running function
+// invoking / calling / running / executing function
 logger();
 logger();
 logger();
@@ -47,3 +48,27 @@ const appleOrangeJuice = fruitProcessor(2,2);
 console.log(appleOrangeJuice);
 
 // DRY principle - Don't Repeat Yourself (i.e., using functions is one way to achieve that)
+ */
+
+// Lecture: Function Declarations vs. Expressions
+// Function declaration
+// function CAN be called before it is declared
+const age1 = calcAge1(1998);
+function calcAge1(birthYear) {
+    return 2069 - birthYear;
+}
+
+// Function expression
+// function CANNOT be called before it is declared
+// This will not work:
+// const age2 = calcAge2(1998);
+
+// stored into a variable (thus is a value)
+// called the same
+// anonymous(?)
+const calcAge2 = function (birthYear) {
+    return 2069 - birthYear;
+}
+const age2 = calcAge2(1998);
+
+console.log(age1, age2);
