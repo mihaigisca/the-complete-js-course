@@ -1,6 +1,8 @@
 "use strict";
 
+/* 
 // Lecture: Activating Strict Mode
+// by putting "use strict"; at the beginning of the file
 let hasDriversLicense = false;
 const passTest = true;
 
@@ -13,6 +15,7 @@ if (hasDriversLicense) console.log("I can drive ^_^");
 // With strict mode, we will not be able to use key words for naming variables
 // const interface = "Audio";
 // const private = 534;
+ */
 
 /* 
 // Lecture: Functions
@@ -74,28 +77,43 @@ const age2 = calcAge2(1998);
 console.log(age1, age2);
 */
 
+/* 
 // Lecture: Arrow Functions
 // one parameter, one line of code
-const calcAge3 = birthYear => 2069 - birthYear;
-console.log (calcAge3(1998));
+const calcAge3 = (birthYear) => 2069 - birthYear;
+console.log(calcAge3(1998));
 
 // one parameter, multiple lines of code
-const yearsUntilRetirement1 = birthYear => {
-    // const age = 2069 - birthYear;
-    // const retirement = 65 - age;
-    // return retirement;
+const yearsUntilRetirement1 = (birthYear) => {
+  // const age = 2069 - birthYear;
+  // const retirement = 65 - age;
+  // return retirement;
 
-    return 65 - calcAge3(birthYear);
-}
+  return 65 - calcAge3(birthYear);
+};
 console.log(`Years until retirement: ${yearsUntilRetirement1(2005)}`);
 
 // two parameters, multiple lines of code
 const yearsUntilRetirement2 = (birthYear, firstName) => {
-    // const age = 2069 - birthYear;
-    // const retirement = 65 - age;
-    // return `${firstName} retires in ${retirement} years.`;
-    
-    return `${firstName} retires in ${65 - calcAge3(birthYear)} years.`;
-}
+  // const age = 2069 - birthYear;
+  // const retirement = 65 - age;
+  // return `${firstName} retires in ${retirement} years.`;
+
+  return `${firstName} retires in ${65 - calcAge3(birthYear)} years.`;
+};
 console.log(yearsUntilRetirement2(2005, "Mike"));
 console.log(yearsUntilRetirement2(2010, "Alex"));
+ */
+
+// Lecture: Functions Calling Other Functions
+const cutPieces = function (fruit) {
+  return fruit * 4;
+};
+
+const fruitProcessor = function (apples, oranges) {
+  const applePieces = cutPieces(apples);
+  const orangePieces = cutPieces(oranges);
+  return `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+};
+
+console.log(fruitProcessor(2, 3));
