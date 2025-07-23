@@ -105,6 +105,7 @@ console.log(yearsUntilRetirement2(2005, "Mike"));
 console.log(yearsUntilRetirement2(2010, "Alex"));
  */
 
+/* 
 // Lecture: Functions Calling Other Functions
 const cutPieces = function (fruit) {
   return fruit * 4;
@@ -117,3 +118,42 @@ const fruitProcessor = function (apples, oranges) {
 };
 
 console.log(fruitProcessor(2, 3));
+ */
+
+// Lecture: Reviewing Functions
+
+const calcAge = function (birthYear) {
+  return 2069 - birthYear;
+};
+
+const yearsUntilRetirement1 = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    return `${firstName} retires in ${retirement} years.`;
+  } else if (retirement < 0) {
+    return `${firstName} is retired for ${-retirement} years.`;
+  } else {
+    return `${firstName} retired or is retiring this year.`;
+  }
+};
+
+console.log(yearsUntilRetirement1(1991, "Jonas"));
+console.log(yearsUntilRetirement1(2015, "Mindi"));
+console.log(yearsUntilRetirement1(2004, "Mathias"));
+
+const yearsUntilRetirement2 = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    return retirement;
+  } else {
+    return -1;
+  }
+};
+
+console.log(yearsUntilRetirement2(1991, "Jonas"));
+console.log(yearsUntilRetirement2(2015, "Mindi"));
+console.log(yearsUntilRetirement2(2004, "Mathias"));
