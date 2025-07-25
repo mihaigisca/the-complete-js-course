@@ -1,5 +1,5 @@
 // Fundamentals Part 2
-
+/* 
 // Challenge #1
 
 const calcAverage = function (score1, score2, score3) {
@@ -54,3 +54,4 @@ scoreDolphins = calcAverage(dolphinsScore1, dolphinsScore2, dolphinsScore3);
 scoreKoalas = calcAverage(koalasScore1, koalasScore2, koalasScore3);
 
 checkWinner(scoreDolphins, scoreKoalas);
+ */

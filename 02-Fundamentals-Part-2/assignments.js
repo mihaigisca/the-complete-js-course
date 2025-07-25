@@ -96,3 +96,27 @@ const describePopulation = function (country, populationInMillions) {
 
 console.log(describePopulation("Republic of Moldova", 2.458));
  */
+
+// Lecture: Introduction to Arrays
+const populationsInMillions = [2.458, 19.06, 340.1, 1411];
+console.log(`Populations: ${populationsInMillions}`);
+
+const checkLength = 4;
+console.log(
+  `Array has ${checkLength} elements: ${
+    populationsInMillions.length === checkLength
+  }`
+);
+
+// from Function Declarations vs. Expressions lecture
+function percentageOfWorld1(populationInMillions) {
+  return (populationInMillions * 100.0) / 7900;
+}
+
+const percentagesOfWorld = [
+  percentageOfWorld1(populationsInMillions[0]),
+  percentageOfWorld1(populationsInMillions[1]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
+];
+console.log(`Population percentages: ${percentagesOfWorld}`);

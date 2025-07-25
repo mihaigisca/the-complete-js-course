@@ -159,3 +159,53 @@ console.log(yearsUntilRetirement2(1991, "Jonas"));
 console.log(yearsUntilRetirement2(2015, "Mindi"));
 console.log(yearsUntilRetirement2(2004, "Mathias"));
  */
+
+// Lecture: Introduction to Arrays
+const friend1 = "Nicu";
+const friend2 = "Mircea";
+const friend3 = "Dima";
+const friend4 = "Artiom";
+
+// Declaring an array using literal syntax
+const friends = ["Nicu", "Mircea", "Dima", "Artiom"];
+console.log(friends);
+
+// Declaring an array using Array function
+const years = new Array(1991, 2000, 2008, 2019);
+
+// Arrays are zero-based, meaning they start counting from zero
+console.log(friends[0]); // Nicu
+console.log(friends[2]); // Dima
+
+// array is an object
+// objects have properties
+// properties are accessed as object.property
+// array has a length property - number of elements the array contains
+console.log(friends.length);
+
+// array being 0-based, the last element position is one less than array's length
+console.log(friends[friends.length - 1]); // Artiom
+
+// change/mutate array element
+friends[0] = "Vadim";
+console.log(friends);
+
+// only primitive const values are immutable
+// in fact, array elements can be changed, but array itself cannot be reinitialized
+// friends = ["Peter", "John", "Sarah"];
+// friends = new Array("Peter", "John", "Sarah");
+const firstName = "Gicu";
+const gicu = [firstName, "Boevicu", 2025 - 1970, "boevic", friends];
+console.log(gicu, gicu.length); // 5
+
+// from Reviewing Functions lecture
+const calcAge = function (birthYear) {
+  return 2069 - birthYear;
+};
+
+const ages = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(ages);
