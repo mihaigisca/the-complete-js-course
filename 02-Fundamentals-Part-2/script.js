@@ -120,6 +120,7 @@ const fruitProcessor = function (apples, oranges) {
 console.log(fruitProcessor(2, 3));
  */
 
+/* 
 // Lecture: Reviewing Functions
 
 const calcAge = function (birthYear) {
@@ -157,3 +158,4 @@ const yearsUntilRetirement2 = function (birthYear, firstName) {
 console.log(yearsUntilRetirement2(1991, "Jonas"));
 console.log(yearsUntilRetirement2(2015, "Mindi"));
 console.log(yearsUntilRetirement2(2004, "Mathias"));
+ */
