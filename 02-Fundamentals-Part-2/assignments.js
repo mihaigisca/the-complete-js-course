@@ -121,7 +121,7 @@ const percentagesOfWorld = [
 ];
 console.log(`Population percentages: ${percentagesOfWorld}`);
  */
-
+/* 
 // Lecture: Basic Array Operations (Methods)
 const neighbours = ["Ukraine", "Bulgaria", "Moldova", "Serbia", "Hungary"];
 neighbours.push("Utopia");
@@ -131,3 +131,4 @@ if (!neighbours.includes("Germany")) {
 }
 neighbours[neighbours.indexOf("Moldova")] = "Republic of Moldova";
 console.log(neighbours);
+ */

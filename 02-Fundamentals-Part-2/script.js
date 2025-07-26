@@ -210,7 +210,7 @@ const ages = [
 ];
 console.log(ages);
  */
-
+/* 
 // Lecture: Basic Array Operations (Methods)
 const friends = ["Nicu", "Mircea", "Dima", "Artiom"];
 
@@ -234,3 +234,4 @@ console.log(friends.indexOf("Alex"));
 // includes - return true if element exists in array, false otherwise
 console.log(friends.includes("Mircea"));
 console.log(friends.includes("Alex"));
+ */
