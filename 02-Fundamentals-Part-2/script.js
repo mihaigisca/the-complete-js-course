@@ -235,3 +235,24 @@ console.log(friends.indexOf("Alex"));
 console.log(friends.includes("Mircea"));
 console.log(friends.includes("Alex"));
  */
+
+// Lecture: Introduction to Objects
+// when array has different data types
+// it is not always clear what element maps to what data type
+const jicuArray = [
+  "Jicu",
+  "Boevicu",
+  2025 - 1970,
+  "boevic",
+  ["Nicu", "Mircea", "Dima", "Artiom"],
+];
+
+// an object is a collection of key-value pairs
+// where each key is a property name
+const jicu = {
+  firstName: "Jicu",
+  lastName: "Boevicu",
+  age: 2025 - 1970,
+  job: "boevic",
+  friends: ["Nicu", "Mircea", "Dima", "Artiom"],
+};

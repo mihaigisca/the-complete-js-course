@@ -132,3 +132,12 @@ if (!neighbours.includes("Germany")) {
 neighbours[neighbours.indexOf("Moldova")] = "Republic of Moldova";
 console.log(neighbours);
  */
+
+// Lecture: Introduction to Objects
+const myCountry = {
+  country: "Republic of Moldova",
+  capital: "Chișinău",
+  language: "Romanian",
+  population: 2.548,
+  neighbours: ["Romania", "Ukraine"],
+};

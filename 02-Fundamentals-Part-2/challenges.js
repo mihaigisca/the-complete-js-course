@@ -55,7 +55,7 @@ scoreKoalas = calcAverage(koalasScore1, koalasScore2, koalasScore3);
 
 checkWinner(scoreDolphins, scoreKoalas);
  */
-
+/* 
 // Challenge #2
 const calcTip = function (bill) {
   let tip = 0;
@@ -80,3 +80,4 @@ const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(`${bills}
 ${tips}
 ${totals}`);
+ */
