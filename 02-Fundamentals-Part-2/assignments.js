@@ -96,7 +96,7 @@ const describePopulation = function (country, populationInMillions) {
 
 console.log(describePopulation("Republic of Moldova", 2.458));
  */
-
+/* 
 // Lecture: Introduction to Arrays
 const populationsInMillions = [2.458, 19.06, 340.1, 1411];
 console.log(`Populations: ${populationsInMillions}`);
@@ -120,3 +120,14 @@ const percentagesOfWorld = [
   percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
 ];
 console.log(`Population percentages: ${percentagesOfWorld}`);
+ */
+
+// Lecture: Basic Array Operations (Methods)
+const neighbours = ["Ukraine", "Bulgaria", "Moldova", "Serbia", "Hungary"];
+neighbours.push("Utopia");
+neighbours.pop();
+if (!neighbours.includes("Germany")) {
+  console.log("Probably not a central european country :D");
+}
+neighbours[neighbours.indexOf("Moldova")] = "Republic of Moldova";
+console.log(neighbours);

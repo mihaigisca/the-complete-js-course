@@ -159,7 +159,7 @@ console.log(yearsUntilRetirement2(1991, "Jonas"));
 console.log(yearsUntilRetirement2(2015, "Mindi"));
 console.log(yearsUntilRetirement2(2004, "Mathias"));
  */
-
+/* 
 // Lecture: Introduction to Arrays
 const friend1 = "Nicu";
 const friend2 = "Mircea";
@@ -209,3 +209,28 @@ const ages = [
   calcAge(years[years.length - 1]),
 ];
 console.log(ages);
+ */
+
+// Lecture: Basic Array Operations (Methods)
+const friends = ["Nicu", "Mircea", "Dima", "Artiom"];
+
+// push - take as param the element to add to the end of the array, return updated array length
+friends.push("Vadim");
+console.log(friends);
+// unshift - take as param the element to add to the beginning of the array, return updated array length
+friends.unshift("Alex");
+console.log(friends);
+// pop - remove last element from the array, return removed element
+const poppedFriend = friends.pop();
+console.log(poppedFriend);
+console.log(friends);
+// shift - remove first element from the array, return removed element
+const shiftedFriend = friends.shift();
+console.log(shiftedFriend);
+console.log(friends);
+// indexOf - take as param the element to return the 0-based index of or return -1 if no such element in the array
+console.log(friends.indexOf("Mircea"));
+console.log(friends.indexOf("Alex"));
+// includes - return true if element exists in array, false otherwise
+console.log(friends.includes("Mircea"));
+console.log(friends.includes("Alex"));
