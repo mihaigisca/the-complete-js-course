@@ -141,3 +141,10 @@ const myCountry = {
   population: 2.548,
   neighbours: ["Romania", "Ukraine"],
 };
+
+// Lecture: Dot vs. Bracket Notation
+myCountry.population += 2;
+myCountry["population"] -= 2;
+console.log(
+  `${myCountry.country} has ${myCountry.population} million people (not all of them speak ${myCountry.language}), ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
+);

@@ -256,3 +256,30 @@ const jicu = {
   job: "boevic",
   friends: ["Nicu", "Mircea", "Dima", "Artiom"],
 };
+
+// Lecture: Dot vs. Bracket Notation
+console.log(jicu);
+console.log(jicu.firstName);
+console.log(jicu["firstName"]);
+const nameKey = "Name";
+console.log(jicu["first" + nameKey]);
+
+const interestedIn = prompt(
+  `What do you want to know about ${jicu.firstName}? Choose between lastName, age, job and friends.`
+);
+if (jicu[interestedIn]) {
+  console.log(jicu[interestedIn]);
+} else {
+  console.log("Wrong request. Choose between lastName, age, job and friends.");
+}
+
+// new properties can be added just by assigning properties that did not exist
+jicu.location = "Moldova";
+console.log(jicu["location"]);
+jicu["favWord"] = "bratka";
+console.log(jicu.favWord);
+
+// Challenge
+console.log(
+  `${jicu.firstName} has ${jicu.friends.length} friends, and his best friend is called ${jicu.friends[0]}.`
+);
