@@ -284,7 +284,7 @@ console.log(
   `${jicu.firstName} has ${jicu.friends.length} friends, and his best friend is called ${jicu.friends[0]}.`
 );
  */
-
+/* 
 // Lecture: Object Methods
 const jicu = {
   firstName: "Jicu",
@@ -328,3 +328,4 @@ console.log(jicu.age);
 
 // Challenge
 console.log(jicu.getSummary());
+ */

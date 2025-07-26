@@ -132,7 +132,7 @@ if (!neighbours.includes("Germany")) {
 neighbours[neighbours.indexOf("Moldova")] = "Republic of Moldova";
 console.log(neighbours);
  */
-
+/* 
 // Lecture: Introduction to Objects
 const myCountry = {
   country: "Republic of Moldova",
@@ -159,3 +159,4 @@ myCountry.checkIsland = function () {
   this.isIsland = this.neighbours.length === 0 ? true : false;
   return this.isIsland;
 };
+ */
