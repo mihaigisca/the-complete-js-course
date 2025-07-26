@@ -148,3 +148,14 @@ myCountry["population"] -= 2;
 console.log(
   `${myCountry.country} has ${myCountry.population} million people (not all of them speak ${myCountry.language}), ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`
 );
+
+// Lecture: Object Methods
+myCountry.describe = function () {
+  return `${this.country} has ${this.population} million people (not all of them speak ${this.language}), ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`;
+};
+console.log(myCountry.describe());
+
+myCountry.checkIsland = function () {
+  this.isIsland = this.neighbours.length === 0 ? true : false;
+  return this.isIsland;
+};

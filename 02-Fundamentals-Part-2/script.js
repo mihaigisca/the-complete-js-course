@@ -235,7 +235,7 @@ console.log(friends.indexOf("Alex"));
 console.log(friends.includes("Mircea"));
 console.log(friends.includes("Alex"));
  */
-
+/* 
 // Lecture: Introduction to Objects
 // when array has different data types
 // it is not always clear what element maps to what data type
@@ -283,3 +283,48 @@ console.log(jicu.favWord);
 console.log(
   `${jicu.firstName} has ${jicu.friends.length} friends, and his best friend is called ${jicu.friends[0]}.`
 );
+ */
+
+// Lecture: Object Methods
+const jicu = {
+  firstName: "Jicu",
+  lastName: "Boevicu",
+  birthYear: 2002,
+  job: "boevic",
+  friends: ["Nicu", "Mircea", "Dima", "Artiom"],
+  hasDriversLicense: true,
+  // object method can be defined as other key-value pair because the method is a property that contains a function value
+  // calcAge: function (birthYear) {
+  //   return 2069 - birthYear;
+  // },
+
+  // this - special keyword that allows accessing the object properties within object
+  // calcAge: function () {
+  //   return 2069 - this.birthYear;
+  // },
+
+  // to avoid computation each time, we could create and assign a new age property
+  // and then read that one instead
+  calcAge: function () {
+    this.age = 2069 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is ${this.calcAge()} years old, he works as ${
+      this.job
+    } and has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+  },
+};
+
+// console.log(jicu.calcAge(jicu.birthYear));
+// console.log(jicu["calcAge"](jicu.birthYear));
+
+// console.log(jicu.calcAge());
+// console.log(jicu["calcAge"]());
+
+console.log(jicu.calcAge());
+console.log(jicu.age);
+
+// Challenge
+console.log(jicu.getSummary());
