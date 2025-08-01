@@ -329,3 +329,13 @@ console.log(jicu.age);
 // Challenge
 console.log(jicu.getSummary());
  */
+
+// Lecture: Iteration: The for Loop
+// for loop keeps running while condition is true
+// for loop as the following structure: for (a; b; c)
+//   a - start condition (e.g., let rep = 1)
+//   b - condition evaluation (e.g., rep <= 30)
+//   c - action before next iteration (e.g., rep++)
+for (let rep = 1; rep <= 30; rep++) {
+  console.log(`Lifting weight repetition ${rep}`);
+}

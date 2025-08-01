@@ -81,7 +81,7 @@ console.log(`${bills}
 ${tips}
 ${totals}`);
  */
-
+/* 
 // Challenge #3
 const mark = {
   // firstName: "Mark",
@@ -124,3 +124,4 @@ if (mark.calcBMI() > john.calcBMI()) {
     `${mark.fullName}'s BMI and ${john.fullName}'s are the same (${mark.bmi})!!!`
   );
 }
+ */
