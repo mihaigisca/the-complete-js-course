@@ -329,7 +329,7 @@ console.log(jicu.age);
 // Challenge
 console.log(jicu.getSummary());
  */
-
+/* 
 // Lecture: Iteration: The for Loop
 // for loop keeps running while condition is true
 // for loop as the following structure: for (a; b; c)
@@ -338,4 +338,61 @@ console.log(jicu.getSummary());
 //   c - action before next iteration (e.g., rep++)
 for (let rep = 1; rep <= 30; rep++) {
   console.log(`Lifting weight repetition ${rep}`);
+}
+ */
+
+// Lecture: Looping Arrays, Breaking and Continuing
+const jicuArray = [
+  "Jicu",
+  "Boevicu",
+  2025 - 1970,
+  "boevic",
+  ["Nicu", "Mircea", "Dima", "Artiom"],
+];
+
+const jicuArrayTypesFillByIndex = [];
+const jicuArrayTypesFillByPushing = [];
+
+// console.log(jicuArray[0]);
+// console.log(jicuArray[1]);
+// ...
+// console.log(jicuArray[4]);
+// jicuArray[5] does not exist (array is zero-based)
+
+// array index is zero-based, so the loop starts from zero
+for (let i = 0; i < jicuArray.length; i++) {
+  // reading from array
+  console.log(jicuArray[i], typeof jicuArray[i]);
+
+  //filling array by index
+  jicuArrayTypesFillByIndex[i] = typeof jicuArray[i];
+
+  //filling array by index
+  jicuArrayTypesFillByPushing.push(typeof jicuArray[i]);
+}
+
+console.log(jicuArrayTypesFillByIndex);
+console.log(jicuArrayTypesFillByPushing);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2069 - years[i]);
+}
+console.log(ages);
+
+// continue and break
+// continue - skip to next loop iteration immediately
+// break - exit the loop immediately
+console.log("--- Process strings only ---");
+for (let i = 0; i < jicuArray.length; i++) {
+  if (typeof jicuArray[i] !== "string") continue;
+  console.log(jicuArray[i]);
+}
+
+console.log("--- Break on reaching a number ---");
+for (let i = 0; i < jicuArray.length; i++) {
+  if (typeof jicuArray[i] === "number") break;
+  console.log(jicuArray[i]);
 }

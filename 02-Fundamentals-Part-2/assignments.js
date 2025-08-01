@@ -117,7 +117,7 @@ const percentagesOfWorld = [
   percentageOfWorld1(populationsInMillions[0]),
   percentageOfWorld1(populationsInMillions[1]),
   percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
-  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 1]),
 ];
 console.log(`Population percentages: ${percentagesOfWorld}`);
  */
@@ -160,8 +160,35 @@ myCountry.checkIsland = function () {
   return this.isIsland;
 };
  */
-
+/* 
 // Lecture: Iteration: The for Loop
 for (let voter = 1; voter <= 50; voter++) {
   console.log(`Voter number ${voter} is currently voting`);
 }
+ */
+
+// Lecture: Looping Arrays, Breaking and Continuing
+const percentages2 = [];
+
+// from Introduction to Arrays lecture
+const populationsInMillions = [2.458, 19.06, 340.1, 1411];
+
+// from Function Declarations vs. Expressions lecture
+function percentageOfWorld1(populationInMillions) {
+  return (populationInMillions * 100.0) / 7900;
+}
+
+// from Introduction to Arrays lecture
+const percentagesOfWorld = [
+  percentageOfWorld1(populationsInMillions[0]),
+  percentageOfWorld1(populationsInMillions[1]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 1]),
+];
+
+for (let i = 0; i < populationsInMillions.length; i++) {
+  percentages2.push(percentageOfWorld1(populationsInMillions[i]));
+}
+
+console.log(`${percentagesOfWorld}
+${percentages2}`);
