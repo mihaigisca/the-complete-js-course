@@ -397,7 +397,7 @@ for (let i = 0; i < jicuArray.length; i++) {
   console.log(jicuArray[i]);
 }
  */
-
+/* 
 // Lecture: Looping Backwards and Loops in Loops
 const jicuArray = [
   "Jicu",
@@ -408,7 +408,7 @@ const jicuArray = [
 ];
 
 // 0, 1, ..., 4
-// 4, 3, ..., 0
+// 4, 3, ..., 0ß
 
 // looping backwards
 for (let i = jicuArray.length - 1; i >= 0; i--) {
@@ -421,5 +421,36 @@ for (let exercise = 1; exercise < 4; exercise++) {
 
   for (let rep = 1; rep < 6; rep++) {
     console.log(`-- Exercise ${exercise} -> Starting rep ${rep} --`);
+  }
+}
+ */
+
+// Lecture: The while Loop
+for (let rep = 1; rep < 6; rep++) {
+  console.log(`-- Starting rep ${rep} --`);
+}
+console.log(`------------`);
+let rep = 1;
+// only takes a condition
+while (rep < 6) {
+  console.log(`-- Starting rep ${rep} --`);
+  rep++;
+}
+
+// Math.random() creates a random (decimal) number from 0 to 1
+// Multiply by 6 to create a random (decimal) number from 0 to 5
+// Math.trunc() removes the decimal part from the number, making it integer
+// Addition of 1 to create an integer number from 1 to 6
+const rollDice = function () {
+  let dice = Math.trunc(Math.random() * 6) + 1;
+  console.log(`You rolled a ${dice}`);
+  return dice;
+};
+
+let dice = rollDice();
+while (6 !== dice) {
+  dice = rollDice();
+  if (6 === dice) {
+    console.log("Loop is about to end...");
   }
 }

@@ -193,7 +193,7 @@ for (let i = 0; i < populationsInMillions.length; i++) {
 console.log(`${percentagesOfWorld}
 ${percentages2}`);
  */
-
+/* 
 // Lecture: Looping Backwards and Loops in Loops
 const listOfNeighbours = [
   ["Canada", "Mexico"],
@@ -216,3 +216,37 @@ for (let i = 0; i < listOfNeighbours.length; i++) {
     console.log(`Neighbour: ${neighboursList[j]}`);
   }
 }
+ */
+
+// Lecture: The while Loop
+const percentages3 = [];
+
+// from Introduction to Arrays lecture
+const populationsInMillions = [2.458, 19.06, 340.1, 1411];
+
+// from Function Declarations vs. Expressions lecture
+function percentageOfWorld1(populationInMillions) {
+  return (populationInMillions * 100.0) / 7900;
+}
+
+// from Introduction to Arrays lecture
+const percentagesOfWorld = [
+  percentageOfWorld1(populationsInMillions[0]),
+  percentageOfWorld1(populationsInMillions[1]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 2]),
+  percentageOfWorld1(populationsInMillions[populationsInMillions.length - 1]),
+];
+
+// from Looping Arrays, Breaking and Continuing lecture
+// for (let i = 0; i < populationsInMillions.length; i++) {
+//   percentages2.push(percentageOfWorld1(populationsInMillions[i]));
+// }
+
+let i = 0;
+while (i < populationsInMillions.length) {
+  percentages3.push(percentageOfWorld1(populationsInMillions[i]));
+  i++;
+}
+
+console.log(`${percentagesOfWorld}
+${percentages3}`);
