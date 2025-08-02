@@ -125,7 +125,7 @@ if (mark.calcBMI() > john.calcBMI()) {
   );
 }
  */
-
+/* 
 // Challenge #4
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
@@ -153,4 +153,7 @@ for (let i = 0; i < bills.length; i++) {
 console.log(`Bills: ${bills}
 Tips: ${tips}
 Totals: ${totals}
-Average from totals: ${calcAverage(totals)}`);
+Average from totals: ${calcAverage(totals)}
+Average from tips: ${calcAverage(tips)}
+Average from bils: ${calcAverage(bills)}`);
+ */
