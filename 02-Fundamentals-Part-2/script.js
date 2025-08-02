@@ -424,7 +424,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
   }
 }
  */
-
+/* 
 // Lecture: The while Loop
 for (let rep = 1; rep < 6; rep++) {
   console.log(`-- Starting rep ${rep} --`);
@@ -454,3 +454,4 @@ while (6 !== dice) {
     console.log("Loop is about to end...");
   }
 }
+ */
