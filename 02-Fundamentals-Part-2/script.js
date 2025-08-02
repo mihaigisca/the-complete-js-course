@@ -340,7 +340,7 @@ for (let rep = 1; rep <= 30; rep++) {
   console.log(`Lifting weight repetition ${rep}`);
 }
  */
-
+/* 
 // Lecture: Looping Arrays, Breaking and Continuing
 const jicuArray = [
   "Jicu",
@@ -395,4 +395,31 @@ console.log("--- Break on reaching a number ---");
 for (let i = 0; i < jicuArray.length; i++) {
   if (typeof jicuArray[i] === "number") break;
   console.log(jicuArray[i]);
+}
+ */
+
+// Lecture: Looping Backwards and Loops in Loops
+const jicuArray = [
+  "Jicu",
+  "Boevicu",
+  2025 - 1970,
+  "boevic",
+  ["Nicu", "Mircea", "Dima", "Artiom"],
+];
+
+// 0, 1, ..., 4
+// 4, 3, ..., 0
+
+// looping backwards
+for (let i = jicuArray.length - 1; i >= 0; i--) {
+  console.log(i, jicuArray[i]);
+}
+
+// loop in loop
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`--- Starting exercise ${exercise} ---`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`-- Exercise ${exercise} -> Starting rep ${rep} --`);
+  }
 }

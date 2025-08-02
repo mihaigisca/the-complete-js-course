@@ -166,7 +166,7 @@ for (let voter = 1; voter <= 50; voter++) {
   console.log(`Voter number ${voter} is currently voting`);
 }
  */
-
+/* 
 // Lecture: Looping Arrays, Breaking and Continuing
 const percentages2 = [];
 
@@ -192,3 +192,27 @@ for (let i = 0; i < populationsInMillions.length; i++) {
 
 console.log(`${percentagesOfWorld}
 ${percentages2}`);
+ */
+
+// Lecture: Looping Backwards and Loops in Loops
+const listOfNeighbours = [
+  ["Canada", "Mexico"],
+  ["Spain"],
+  ["Norway", "Sweden", "Russia"],
+];
+
+// implementation that first comes to mind
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  for (let j = 0; j < listOfNeighbours[i].length; j++) {
+    console.log(`Neighbour: ${listOfNeighbours[i][j]}`);
+  }
+}
+console.log("---");
+// implementation that I think a beginner is expected to provide
+for (let i = 0; i < listOfNeighbours.length; i++) {
+  let neighboursList = listOfNeighbours[i];
+
+  for (let j = 0; j < neighboursList.length; j++) {
+    console.log(`Neighbour: ${neighboursList[j]}`);
+  }
+}
