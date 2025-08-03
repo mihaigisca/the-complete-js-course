@@ -122,3 +122,113 @@ How to succeed at problem solving
 -- for bigger problems, write pseudo-code (simple expected statements as code scenario) before writing actual code
 - be curious about everything around you!
  */
+
+// Lecture: Using Google, StackOverflow and MDN
+
+// tools to research problems: Google, StackOverflow, MDN (Mozilla Developer Network)
+
+// PROBLEM 1:
+// We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+// 1. Understanding the problem
+// 1.1 what is temperature amplitude? => difference between max and min temperatures
+// 1.2 what is a sensor error? what to do with it? => don't do anything
+
+// 2. Breaking into smaller, sub-problems
+// 2.1 how to ignore errors?
+// 2.2 fina max value in array
+// 2.3 find min value in array
+// 2.4 subtract min from max (amplitude) and return it
+
+// let's research the problem
+// naming function according to problem: "calculate the temperature amplitude"
+// the function will take as parameter an array of temperatures: "Given an array of temperatures"
+const calcTempAmplitude = function (temps) {
+  // look up on google: javascript find max value in array
+  // will also integrate here the min value in array
+  let max = temps[0];
+  let min = temps[0];
+
+  for (let i = 1; i < temps.length; i++) {
+    const curTemp = temps[i];
+
+    // skip iteration if current temperature is not a number (i.e., sensor error)
+    if (typeof curTemp !== 'number') continue;
+
+    if (typeof max !== 'number') max = curTemp;
+    else {
+      if (max < curTemp) max = curTemp;
+    }
+
+    if (typeof min !== 'number') min = curTemp;
+    else {
+      if (curTemp < min) min = curTemp;
+    }
+  }
+
+  // test the solution for sub-problems 2.2 and 2.3
+  console.log(min, max);
+
+  // if both min and max are numbers, return the difference (i.e., amplitude)
+  // otherwise return NaN as a way to tell that there are no valid values in the arrays
+  if (typeof max === 'number' && typeof min === 'number') {
+    return max - min;
+  } else {
+    return NaN;
+  }
+};
+
+console.log(calcTempAmplitude(temperatures));
+console.log(calcTempAmplitude(['error', 1, 3, -2, 2, 5, -3, -1, 4]));
+console.log(calcTempAmplitude(['error1', 'error2', 'error3']));
+
+// PROBLEM 2
+// Function should now receive two 2 of temperatures
+
+// 1. Understanding the problem
+// 1.1 With 2 arrays, should the functionality be implemented twice? -> No, just merge the two arrays
+
+// 2. Breaking into smaller, sub-problems
+// 2.1 How to merge 2 arrays?
+const calcTempAmplitude2 = function (temps1, temps2) {
+  // merge two arrays using concat
+  const temps = temps1.concat(temps2);
+
+  let max = temps[0];
+  let min = temps[0];
+
+  for (let i = 1; i < temps.length; i++) {
+    const curTemp = temps[i];
+
+    if (typeof curTemp !== 'number') continue;
+
+    if (typeof max !== 'number') max = curTemp;
+    else {
+      if (max < curTemp) max = curTemp;
+    }
+
+    if (typeof min !== 'number') min = curTemp;
+    else {
+      if (curTemp < min) min = curTemp;
+    }
+  }
+
+  if (typeof max === 'number' && typeof min === 'number') {
+    return max - min;
+  } else {
+    return NaN;
+  }
+};
+
+console.log(calcTempAmplitude2(temperatures, [-7, 'error', 18]));
+console.log(
+  calcTempAmplitude2(['error', 1, 3, -2, 2, 5, -3, -1, 4], ['error', -4, 5])
+);
+console.log(
+  calcTempAmplitude2(
+    ['error1', 'error2', 'error3'],
+    ['error4', 'error5', 'error6']
+  )
+);
