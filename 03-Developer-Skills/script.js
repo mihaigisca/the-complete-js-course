@@ -122,7 +122,7 @@ How to succeed at problem solving
 -- for bigger problems, write pseudo-code (simple expected statements as code scenario) before writing actual code
 - be curious about everything around you!
  */
-
+/* 
 // Lecture: Using Google, StackOverflow and MDN
 
 // tools to research problems: Google, StackOverflow, MDN (Mozilla Developer Network)
@@ -232,3 +232,13 @@ console.log(
     ['error4', 'error5', 'error6']
   )
 );
+ */
+/* 
+// Lecture: Debugging (Fixing Errors)
+// software bug - defect or problem (unexpected or unintended behaviour) of a computer program
+// debugging - process of finding, fixing and preventing bugs
+// - identify / become aware (during development, testing software, user reports during production, context, other feedback)
+// - find / locate exact location (developer console, debugger)
+// - fix / correct solution
+// - prevent (search for same bug in similar code, write software tests)
+ */
