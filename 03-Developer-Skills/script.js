@@ -48,3 +48,20 @@ const testArrowParens = a => a + 1;
 //
 // now typing in cl reveals the "Print to console" suggestion that automatically replaces the cl with console.log();
 console.log();
+/* 
+autoupdate of webpage on source change, two ways:
+- live server extension (simpler)
+-- press Go Live at the bottom right of VS Code, a browser page opens the html file
+
+- Node.js and live server npm package (more complex, will be used in the rest of the course)
+-- install from nodejs.org
+-- VSCode -> Terminal -> New Terminal
+-- in terminal, run following command: node -v
+--- a version should be displayed
+-- in terminal, run following command: npm install live-server -g
+--- if a permission denied message is shown, run with sudo (add sudo at the beginning of the command)
+-- in terminal, run following command: live-server
+--- a browser page opens the html file (as with Go Live with live server extension)
+ */
+
+console.log('test live update with developer console and live-server');
