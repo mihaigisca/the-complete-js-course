@@ -103,3 +103,22 @@ Learning curve
 -- Round up your skillset with best practices and tool (e.g., git, testing)
 - Job ready (but the learning never stops)
  */
+/* 
+// Lecture: How to Think Like a Developer: Become a Problem Solver!
+How to fail at problem solving
+- jumping in without thinking too much about it
+- implementing solution in an unstructured manner
+- getting stressed out when things don't work
+- not researching for solutions
+
+How to succeed at problem solving
+- slow down
+- stay calm
+- make a plan using a logical, rational approach
+- solve the problem using this 4-step framework
+-- step back, ask questions (e.g., what is passed, what is expected exactly), get a clear picture, understand problem 100%
+-- divide and conquer: break big problem into smaller problems (e.g., do steps 1-2-3, cover cases 1-2-3)
+-- do as much research as you have to (e.g., googling how to ...)
+-- for bigger problems, write pseudo-code (simple expected statements as code scenario) before writing actual code
+- be curious about everything around you!
+ */
