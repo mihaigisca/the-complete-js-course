@@ -242,3 +242,83 @@ console.log(
 // - fix / correct solution
 // - prevent (search for same bug in similar code, write software tests)
  */
+
+// Lecture: Debugging with the Console and Breakpoints
+// Debugging with the Console
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // 3. Fix the bug by converting string to number
+    // value: Number(prompt('Degrees celsius')), // commented to continue with next example
+    value: 10,
+  };
+
+  // 2. Find the bug => value is returned as string
+  console.table(measurement); // console.table - print object in a formatted table
+
+  // console.log(measurement.value); // print simple message (normal color)
+  // console.warn(measurement.value); // print warning message (yellow color)
+  // console.error(measurement.value); // print error message (red color)
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+// 1. Identify the bug => 10 + 273 results in 10273
+console.log(measureKelvin());
+
+// Debugging with the Breakpoints
+// - go to Developer Tools
+// - select Source tab
+// - select script.js (which we work on right now)
+// - put a breakpoint on the line assigning kelvin
+// - refresh page (once value is entered, the kelvin line is reached, but not yet executed, so kelvin is undefined)
+// - hovering on variables show their value
+// - on the right we have tools (specific buttons and windows)
+// - press the Step button to go to next line in code (kelvin is now assigned)
+
+// Using a debugger
+const calcTempAmplitudeBug = function (temps1, temps2) {
+  // merge two arrays using concat
+  const temps = temps1.concat(temps2);
+
+  // Let's assume we initially thought it would be a good idea de to set min and max to 0
+  // 2. Find the bug -> the min/max are initialized with 0, which are values that might not be in string and act as hardcoded limit
+  // let max = 0;
+  // let min = 0;
+
+  // 3. Fix the bug -> instead of initializing  with 0, initialize to first value in array
+  let max = temps[0];
+  let min = temps[0];
+
+  // add debugger; before a line to set a breakpoint and let the browser open directly the source tab at that moment of execution
+  // debugger;
+  for (let i = 1; i < temps.length; i++) {
+    const curTemp = temps[i];
+
+    if (typeof curTemp !== 'number') continue;
+
+    if (typeof max !== 'number') max = curTemp;
+    else {
+      if (max < curTemp) max = curTemp;
+    }
+
+    // 2. Searching for bug -> could not set 1 as the value is currently 0
+    if (typeof min !== 'number') min = curTemp;
+    else {
+      if (curTemp < min) min = curTemp;
+    }
+  }
+
+  // 2. Searching for bug -> should have been (1,9), but displays (0,9)
+  console.log(min, max);
+
+  if (typeof max === 'number' && typeof min === 'number') {
+    return max - min;
+  } else {
+    return NaN;
+  }
+};
+// 1. Identify the bug -> should have been 9-1 = 8, but returns 9
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+console.log(amplitudeBug);
