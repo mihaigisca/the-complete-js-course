@@ -242,7 +242,7 @@ console.log(
 // - fix / correct solution
 // - prevent (search for same bug in similar code, write software tests)
  */
-
+/* 
 // Lecture: Debugging with the Console and Breakpoints
 // Debugging with the Console
 const measureKelvin = function () {
@@ -322,3 +322,6 @@ const calcTempAmplitudeBug = function (temps1, temps2) {
 // 1. Identify the bug -> should have been 9-1 = 8, but returns 9
 const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
 console.log(amplitudeBug);
+// 2. Find the bug -> min/max variables initialized with 0
+// 3. Fix the bug -> min/max variables initialized with array first element
+ */
