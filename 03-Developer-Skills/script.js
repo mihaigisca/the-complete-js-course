@@ -325,3 +325,30 @@ console.log(amplitudeBug);
 // 2. Find the bug -> min/max variables initialized with 0
 // 3. Fix the bug -> min/max variables initialized with array first element
  */
+
+// Lecture: The Rise of AI Tools (ChatGPT, Copilot, Cursor AI, etc.)
+// LLM interaction
+// - can provide snippets, functions and even entire files of code based on input prompts
+// - use code-aware autocomplete
+// - chat with codebase
+
+// 1 Make sure you understand the problem (ask questions to get a clear picture)
+// 2 Choose AI and give it a very specific prompt and enough context (topic, goal, language, style)
+// 3 AI magic
+// 4 Thoroughly review and test output solution
+// 5 Use AI to correct or improve solution by giving it a new specific prompt
+// 6 Integrate solution into app
+
+// Before you use AI
+// - know how to code on your own (fundamental skills are 100% essential)
+// - know how to solve problems on your own
+// - have a very critical thinking
+// - have curiosity and joy while coding
+
+// Use AI as an assistant, not replacement; to save time on repetitive tasks. It is also great for learning
+
+// Incorporate AI code
+// - when you could have written the code yourself
+// - when you truly understand the generated code
+// - when you ensured generated code is 100% correct
+// - when you're not using generated code for app critical parts
