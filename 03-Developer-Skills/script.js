@@ -325,7 +325,7 @@ console.log(amplitudeBug);
 // 2. Find the bug -> min/max variables initialized with 0
 // 3. Fix the bug -> min/max variables initialized with array first element
  */
-
+/* 
 // Lecture: The Rise of AI Tools (ChatGPT, Copilot, Cursor AI, etc.)
 // LLM interaction
 // - can provide snippets, functions and even entire files of code based on input prompts
@@ -352,3 +352,4 @@ console.log(amplitudeBug);
 // - when you truly understand the generated code
 // - when you ensured generated code is 100% correct
 // - when you're not using generated code for app critical parts
+ */
