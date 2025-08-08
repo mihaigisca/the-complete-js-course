@@ -42,7 +42,7 @@ const printForecast = function (arr) {
 printForecast([17, 21, 23]);
 printForecast([12, 5, -5, 0, 4]);
  */
-
+/* 
 // Challenge #2 (with AI)
 
 // Problem
@@ -170,3 +170,4 @@ function analyzeWorkWeek(hoursArray) {
 }
 
 console.log(analyzeWorkWeek([7.5, 8, 6.5, 0, 8.5, 4, 0]));
+ */
