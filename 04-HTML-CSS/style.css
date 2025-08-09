@@ -6,6 +6,26 @@
 /* #id-name { ... } to style the element with id #id-name */
 /* shorthand property - multiple properties in one (e.g., border: width style color) */
 
+/* Lecture: Introduction to the CSS Box Model */
+/* box model
+    - defines how elements are displayed and sized on a web page
+    - each element is a rectangle with
+      > content - the data being displayed
+      > height
+      > width
+      > padding - transparent area inside the box (between content and box border)
+      > border
+      > fill area = entire box (excluding margin)
+      > margin - transparent are outside the box (between boxes) */
+
+/* Global reset of margins and paddings via * element */
+/* border-box box-sizing includes margins and paddings into the element's width and height */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* body - selector */
 /* { ... } - selector body */
 /* background-color: rgb(x, y, z); - style */
@@ -15,10 +35,21 @@ body {
   background-color: rgb(255, 247, 201);
   font-family: Arial;
   font-size: 20px;
+  padding: 50px;
 }
 
 h1 {
   font-size: 40px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 20px;
 }
 
 .first {
@@ -28,4 +59,25 @@ h1 {
 #your-name {
   background-color: rgb(255, 220, 105);
   border: 5px solid #444;
+  width: 400px;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+input,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+a {
+  background-color: rgb(255, 220, 105);
+}
+
+#site-image {
+  width: 50px;
+}
+
+#your-name h2 {
+  color: olivedrab;
 }
