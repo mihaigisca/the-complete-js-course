@@ -1,0 +1,31 @@
+/* Lecture: Basic Styling with CSS */
+/* inheritable property - property passed from parent element to child element (e.g., font-family) */
+/* h1 { ... } to style all the <h1> elements */
+/* .class-name { ... } to style all the elements containing the .class-name */
+/* elements can have multiple classes */
+/* #id-name { ... } to style the element with id #id-name */
+/* shorthand property - multiple properties in one (e.g., border: width style color) */
+
+/* body - selector */
+/* { ... } - selector body */
+/* background-color: rgb(x, y, z); - style */
+/* background-color - property */
+/* rgb(x, y, z) - value */
+body {
+  background-color: rgb(255, 247, 201);
+  font-family: Arial;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.first {
+  color: red;
+}
+
+#your-name {
+  background-color: rgb(255, 220, 105);
+  border: 5px solid #444;
+}

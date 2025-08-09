@@ -1,3 +1,5 @@
+<!-- Lecture: Basic HTML Structure and Elements -->
+<!-- the starting file usually is named index.html -->
 <!-- HTML code is wrapped into <html> tag -->
 <!-- <head> tag contains webpage settings -->
 <!-- <title> tag is the name of the browser tab -->
@@ -6,6 +8,7 @@
 <!-- <p> tag is the paragraph element -->
 <!-- To insert the default initial HTML structure, from a new line type in ! and press tab -->
 
+<!-- Lecture: Attributes, Classes and IDs -->
 <!-- most of elements have open and closing tags <html>...</html> -->
 <!-- some elements do not have closing tags <img ... />, <input ... /> -->
 <!-- Nested elements are called child elements -->
@@ -21,11 +24,18 @@
 <!-- semantic - has meaning -->
 <!-- <form> element is a semantic container as it is used when some data is typed in -->
 
+<!-- Lecture: Basic Styling with CSS -->
+<!-- elements can be styled directly in the element tag, in the <head> or in a separate .css file (recommended) -->
+<!-- the .css file (usually named style.css) is linked to (referenced in) html file in <head> (<link href="style.css" rel="stylesheet" />) -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="style.css" rel="stylesheet" />
+
     <title>Learning HTML & CSS</title>
   </head>
   <body>
@@ -48,7 +58,7 @@
 
       <form id="your-name">
         <h2>Your name here</h2>
-        <p>Please fill in this form</p>
+        <p class="first">Please fill in this form</p>
 
         <input type="text" placeholder="Your name" />
         <button>OK!</button>
