@@ -43,11 +43,39 @@ console.log(document.querySelector('.guess').value);
 // - addEventListener providing the
 //   > event type (click)
 //   > eventHandler function
+
+// Lecture:  Implementing the Game Logic
+
+const secretNumber = Math.trunc(Math.random() * 20 + 1);
+document.querySelector('.number').textContent = secretNumber;
+
+// data is part of application state when it is relevant for proper app functioning
+// such data has to be in the code and not in the DOM
+let score = 20;
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess);
 
   if (!guess) {
     document.querySelector('.message').textContent = '⛔️ No number!';
+  } else if (score > 0) {
+    if (guess === secretNumber) {
+      document.querySelector('.message').textContent = '🏆 Correct Number!';
+    } else if (guess > secretNumber) {
+      document.querySelector('.score').textContent = --score;
+      if (score > 1) {
+        document.querySelector('.message').textContent = '📈 Too High!';
+      }
+    } else if (guess < secretNumber) {
+      document.querySelector('.score').textContent = --score;
+      if (score > 1) {
+        document.querySelector('.message').textContent = '📉 Too Low!';
+      }
+    }
+
+    if (score === 0) {
+      document.querySelector('.message').textContent = '🤣 You Lost the Game!';
+    }
   }
 });
