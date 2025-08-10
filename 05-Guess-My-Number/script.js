@@ -54,6 +54,7 @@ let secretNumber = generateSecretNumber();
 // data is part of application state when it is relevant for proper app functioning
 // such data has to be in the code and not in the DOM
 let score = 20;
+let highscore = 0;
 
 // Lecture: Manipulating CSS Styles
 const playerWinsScenario = function () {
@@ -66,6 +67,11 @@ const playerWinsScenario = function () {
   document.querySelector('body').style.backgroundColor = '#60b347';
   // double of the default in index.html
   document.querySelector('.number').style.width = '30rem';
+
+  if (score > highscore) {
+    highscore = score;
+    document.querySelector('.highscore').textContent = highscore;
+  }
 };
 
 document.querySelector('.check').addEventListener('click', function () {
