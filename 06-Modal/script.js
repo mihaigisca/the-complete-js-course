@@ -13,6 +13,7 @@ const btnsShowModal = document.querySelectorAll('.show-modal');
 console.log(btnsShowModal);
 
 const showModal = function () {
+  // Lecture: Working With Classes
   // JS allows adding/removing classes dinamically to elements
   // here we don't use the . because we are just passing the class name
   modal.classList.remove('hidden');
@@ -46,3 +47,13 @@ for (let i = 0; i < btnsShowModal.length; i++)
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+// Lecture: Handling an "Esc" Keypress Event
+// JS allows listening for key press event using the same eventListener
+// key press event types: keyup, keypress, keydown (used mostly)
+// key press events are global events, so we can attach it to the document element
+// when such event occurs, JS generates an object about the event itself
+document.addEventListener('keydown', function (e) {
+  console.log(e.Key);
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
