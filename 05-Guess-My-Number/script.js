@@ -49,6 +49,10 @@ const generateSecretNumber = function () {
   return Math.trunc(Math.random() * 20 + 1);
 };
 
+const displayText = function (element, text) {
+  document.querySelector(element).textContent = text;
+};
+
 let secretNumber = generateSecretNumber();
 
 // data is part of application state when it is relevant for proper app functioning
@@ -58,8 +62,10 @@ let highscore = 0;
 
 // Lecture: Manipulating CSS Styles
 const playerWinsScenario = function () {
-  document.querySelector('.number').textContent = secretNumber;
-  document.querySelector('.message').textContent = '🏆 Correct Number!';
+  // document.querySelector('.number').textContent = secretNumber;
+  // document.querySelector('.message').textContent = '🏆 Correct Number!';
+  displayText('.number', secretNumber);
+  displayText('.message', '🏆 Correct Number!');
 
   // Set styles via DOM
   // get the element and access its style property
@@ -70,7 +76,8 @@ const playerWinsScenario = function () {
 
   if (score > highscore) {
     highscore = score;
-    document.querySelector('.highscore').textContent = highscore;
+    // document.querySelector('.highscore').textContent = highscore;
+    displayText('.highscore', highscore);
   }
 };
 
@@ -80,29 +87,50 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // No input scenario
   if (!guess) {
-    document.querySelector('.message').textContent = '⛔️ No number!';
+    // document.querySelector('.message').textContent = '⛔️ No number!';
+    displayText('.message', '⛔️ No number!');
   } else if (score > 0) {
     // Win scenario
     if (guess === secretNumber) {
       playerWinsScenario();
 
       // Too high scenario
-    } else if (guess > secretNumber) {
-      document.querySelector('.score').textContent = --score;
+    } else {
       if (score > 1) {
-        document.querySelector('.message').textContent = '📈 Too High!';
+        // document.querySelector('.score').textContent = --score;
+        // document.querySelector('.message').textContent =
+        //   guess > secretNumber ? '📈 Too High!' : '📉 Too Low!';
+        displayText('.score', --score);
+        displayText(
+          '.message',
+          guess > secretNumber ? '📈 Too High!' : '📉 Too Low!'
+        );
+      } else {
+        // document.querySelector('.score').textContent = 0;
+        // document.querySelector('.message').textContent =
+        //   '🤣 You Lost the Game!';
+        displayText('.score', 0);
+        displayText('.message', '🤣 You Lost the Game!');
       }
 
-      // Too low scenario
-    } else if (guess < secretNumber) {
-      document.querySelector('.score').textContent = --score;
-      if (score > 1) {
-        document.querySelector('.message').textContent = '📉 Too Low!';
-      }
-    }
+      // if (guess > secretNumber) {
+      //   document.querySelector('.score').textContent = --score;
+      //   if (score > 1) {
+      //     document.querySelector('.message').textContent = '📈 Too High!';
+      //   }
 
-    if (score === 0) {
-      document.querySelector('.message').textContent = '🤣 You Lost the Game!';
+      //   // Too low scenario
+      // } else if (guess < secretNumber) {
+      //   document.querySelector('.score').textContent = --score;
+      //   if (score > 1) {
+      //     document.querySelector('.message').textContent = '📉 Too Low!';
+      //   }
+      // }
+
+      // if (score === 0) {
+      //   document.querySelector('.message').textContent =
+      //     '🤣 You Lost the Game!';
+      // }
     }
   }
 });
@@ -124,13 +152,19 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 
-  document.querySelector('.number').textContent = '?';
+  // document.querySelector('.number').textContent = '?';
+  displayText('.number', '?');
   secretNumber = generateSecretNumber();
 
   score = 20;
-  document.querySelector('.score').textContent = score;
+  // document.querySelector('.score').textContent = score;
+  displayText('.score', score);
 
-  document.querySelector('.message').textContent = 'Start guessing...';
+  // document.querySelector('.message').textContent = 'Start guessing...';
+  displayText('.message', 'Start guessing...');
 
   document.querySelector('.guess').value = '';
 });
+
+// refactoring - restructuring the code without changing how it works
+// Don't Repeat Yourself (DRY) - don't write repetitive code
