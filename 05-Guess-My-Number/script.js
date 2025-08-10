@@ -18,3 +18,15 @@ console.log(document.querySelector('.message').textContent);
 // - JS is implementation of ECMA rules
 // - DOM and DOM methods are part of web APIs
 // - DOM and JS can interact
+
+// Lecture: Selecting and Manipulating Elements
+// Set elements via DOM
+document.querySelector('.message').textContent =
+  'Invarteste, Doamne 😶‍🌫️, roata ☸️!';
+console.log(document.querySelector('.message').textContent);
+
+document.querySelector('.number').textContent = '❓';
+document.querySelector('.score').textContent = '69';
+
+document.querySelector('.guess').value = 13;
+console.log(document.querySelector('.guess').value);
