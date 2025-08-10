@@ -45,7 +45,6 @@ console.log(document.querySelector('.guess').value);
 //   > eventHandler function
 
 // Lecture:  Implementing the Game Logic
-
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
 document.querySelector('.number').textContent = secretNumber;
 
@@ -53,20 +52,38 @@ document.querySelector('.number').textContent = secretNumber;
 // such data has to be in the code and not in the DOM
 let score = 20;
 
+// Lecture: Manipulating CSS Styles
+const playerWinsScenario = function () {
+  document.querySelector('.message').textContent = '🏆 Correct Number!';
+
+  // Set styles via DOM
+  // get the element and access its style property
+  // the values must be set as strings
+  document.querySelector('body').style.backgroundColor = '#60b347';
+  // double of the default in index.html
+  document.querySelector('.number').style.width = '30rem';
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess);
 
+  // No input scenario
   if (!guess) {
     document.querySelector('.message').textContent = '⛔️ No number!';
   } else if (score > 0) {
+    // Win scenario
     if (guess === secretNumber) {
-      document.querySelector('.message').textContent = '🏆 Correct Number!';
+      playerWinsScenario();
+
+      // Too high scenario
     } else if (guess > secretNumber) {
       document.querySelector('.score').textContent = --score;
       if (score > 1) {
         document.querySelector('.message').textContent = '📈 Too High!';
       }
+
+      // Too low scenario
     } else if (guess < secretNumber) {
       document.querySelector('.score').textContent = --score;
       if (score > 1) {
