@@ -46,7 +46,6 @@ console.log(document.querySelector('.guess').value);
 
 // Lecture:  Implementing the Game Logic
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
-document.querySelector('.number').textContent = secretNumber;
 
 // data is part of application state when it is relevant for proper app functioning
 // such data has to be in the code and not in the DOM
@@ -54,6 +53,7 @@ let score = 20;
 
 // Lecture: Manipulating CSS Styles
 const playerWinsScenario = function () {
+  document.querySelector('.number').textContent = secretNumber;
   document.querySelector('.message').textContent = '🏆 Correct Number!';
 
   // Set styles via DOM
