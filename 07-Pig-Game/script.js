@@ -19,21 +19,10 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-// score0El.textContent = 0;
-// score1El.textContent = 0;
-// // diceEl.style.display = 'none';
-// diceEl.classList.add('hidden');
-
 // application flow chart resembles dividing the problem into smaller ones
-// const scores = [0, 0];
-// // let currentScore0 = 0;
-// // let currentScore1 = 0;
-// let currentScore = 0;
 // active player is 0-based as this will
 // - help with accessing array positions more easily (e.g., scores[activePlayer])
 // - allow accessing styles using string literals (e.g., .player--${activePlayer})
-// let activePlayer = 0;
-// let playing = true;
 
 // scope - variables are visible only in the block they are defined
 // declare variables, but set in init
@@ -42,7 +31,6 @@ let scores, currentScore, activePlayer, playing;
 // Lecture: Resetting the Game
 // define init function and immediately execute it
 const init = function () {
-  // scores[0] = scores[1] = 0;
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
@@ -52,8 +40,6 @@ const init = function () {
   score1El.textContent = 0;
   diceEl.classList.add('hidden');
 
-  // document.getElementById(`current--0`).textContent = 0;
-  // document.getElementById(`current--1`).textContent = 0;
   currentScore0El.textContent = 0;
   currentScore1El.textContent = 0;
 
@@ -69,24 +55,10 @@ init();
 // Lecture: Switching the Active Player
 // Note: implemented before watching Holding Current Score lecture
 const switchPlayer = function () {
-  // if (activePlayer === 0) {
-  //   player0El.classList.remove('player--active');
-  //   player1El.classList.add('player--active');
-  // } else {
-  //   player1El.classList.remove('player--active');
-  //   player0El.classList.add('player--active');
-  // }
-
   currentScore = 0;
   document.getElementById(`current--${activePlayer}`).textContent = 0;
 
-  // document
-  //   .querySelector(`.player--${activePlayer}`)
-  //   .classList.remove('player--active');
   activePlayer = activePlayer === 0 ? 1 : 0;
-  // document
-  //   .querySelector(`.player--${activePlayer}`)
-  //   .classList.add('player--active');
 
   player0El.classList.toggle('player--active');
   player1El.classList.toggle('player--active');
@@ -99,53 +71,15 @@ btnRoll.addEventListener('click', function () {
     const dice = Math.trunc(Math.random() * 6) + 1;
 
     // display dice
-    // switch (dice) {
-    //   case 1:
-    //     diceEl.src = 'dice-1.png';
-    //     break;
-    //   case 2:
-    //     diceEl.src = 'dice-2.png';
-    //     break;
-    //   case 3:
-    //     diceEl.src = 'dice-3.png';
-    //     break;
-    //   case 4:
-    //     diceEl.src = 'dice-4.png';
-    //     break;
-    //   case 5:
-    //     diceEl.src = 'dice-5.png';
-    //     break;
-    //   case 6:
-    //     diceEl.src = 'dice-6.png';
-    //     break;
-    // }
     diceEl.src = `dice-${dice}.png`;
     diceEl.classList.remove('hidden');
 
     // check for roll 1: if true, switch to next player
     if (dice !== 1) {
-      // add dice to current score
-      // if (activePlayer === 0) {
-      //   currentScore0 += dice;
-      //   currentScore0El.textContent = currentScore0;
-      // } else {
-      //   currentScore1 += dice;
-      //   currentScore1El.textContent = currentScore1;
-      // }
       currentScore += dice;
-      // scores[activePlayer] += dice; // moved to btnHold event handler
       document.getElementById(`current--${activePlayer}`).textContent =
         currentScore;
     } else {
-      // switch to next player
-      // if (activePlayer === 0) {
-      //   currentScore0 = 0;
-      //   currentScore0El.textContent = 0;
-      // } else {
-      //   currentScore1 = 0;
-      //   currentScore1El.textContent = 0;
-      // }
-
       scores[activePlayer] = 0;
       document.getElementById(`score--${activePlayer}`).textContent = 0;
 
