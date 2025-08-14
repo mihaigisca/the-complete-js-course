@@ -19,21 +19,52 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-score0El.textContent = 0;
-score1El.textContent = 0;
-// diceEl.style.display = 'none';
-diceEl.classList.add('hidden');
+// score0El.textContent = 0;
+// score1El.textContent = 0;
+// // diceEl.style.display = 'none';
+// diceEl.classList.add('hidden');
 
 // application flow chart resembles dividing the problem into smaller ones
-const scores = [0, 0];
-// let currentScore0 = 0;
-// let currentScore1 = 0;
-let currentScore = 0;
+// const scores = [0, 0];
+// // let currentScore0 = 0;
+// // let currentScore1 = 0;
+// let currentScore = 0;
 // active player is 0-based as this will
 // - help with accessing array positions more easily (e.g., scores[activePlayer])
 // - allow accessing styles using string literals (e.g., .player--${activePlayer})
-let activePlayer = 0;
-let playing = true;
+// let activePlayer = 0;
+// let playing = true;
+
+// scope - variables are visible only in the block they are defined
+// declare variables, but set in init
+let scores, currentScore, activePlayer, playing;
+
+// Lecture: Resetting the Game
+// define init function and immediately execute it
+const init = function () {
+  // scores[0] = scores[1] = 0;
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  diceEl.classList.add('hidden');
+
+  // document.getElementById(`current--0`).textContent = 0;
+  // document.getElementById(`current--1`).textContent = 0;
+  currentScore0El.textContent = 0;
+  currentScore1El.textContent = 0;
+
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+
+  // When there is an element that contains a specific class, it is safe to remove it from both
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+};
+init();
 
 // Lecture: Switching the Active Player
 // Note: implemented before watching Holding Current Score lecture
@@ -150,6 +181,4 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', function () {
-  playing = true;
-});
+btnNew.addEventListener('click', init);
