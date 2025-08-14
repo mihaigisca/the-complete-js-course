@@ -33,8 +33,10 @@ let currentScore = 0;
 // - help with accessing array positions more easily (e.g., scores[activePlayer])
 // - allow accessing styles using string literals (e.g., .player--${activePlayer})
 let activePlayer = 0;
+let playing = true;
 
 // Lecture: Switching the Active Player
+// Note: implemented before watching Holding Current Score lecture
 const switchPlayer = function () {
   // if (activePlayer === 0) {
   //   player0El.classList.remove('player--active');
@@ -61,66 +63,93 @@ const switchPlayer = function () {
 
 // Lecture: Rolling The Dice
 btnRoll.addEventListener('click', function () {
-  // generate random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1;
+  if (playing) {
+    // generate random dice roll
+    const dice = Math.trunc(Math.random() * 6) + 1;
 
-  // display dice
-  // switch (dice) {
-  //   case 1:
-  //     diceEl.src = 'dice-1.png';
-  //     break;
-  //   case 2:
-  //     diceEl.src = 'dice-2.png';
-  //     break;
-  //   case 3:
-  //     diceEl.src = 'dice-3.png';
-  //     break;
-  //   case 4:
-  //     diceEl.src = 'dice-4.png';
-  //     break;
-  //   case 5:
-  //     diceEl.src = 'dice-5.png';
-  //     break;
-  //   case 6:
-  //     diceEl.src = 'dice-6.png';
-  //     break;
-  // }
-  diceEl.src = `dice-${dice}.png`;
-  diceEl.classList.remove('hidden');
-
-  // check for roll 1: if true, switch to next player
-  if (dice !== 1) {
-    // add dice to current score
-    // if (activePlayer === 0) {
-    //   currentScore0 += dice;
-    //   currentScore0El.textContent = currentScore0;
-    // } else {
-    //   currentScore1 += dice;
-    //   currentScore1El.textContent = currentScore1;
+    // display dice
+    // switch (dice) {
+    //   case 1:
+    //     diceEl.src = 'dice-1.png';
+    //     break;
+    //   case 2:
+    //     diceEl.src = 'dice-2.png';
+    //     break;
+    //   case 3:
+    //     diceEl.src = 'dice-3.png';
+    //     break;
+    //   case 4:
+    //     diceEl.src = 'dice-4.png';
+    //     break;
+    //   case 5:
+    //     diceEl.src = 'dice-5.png';
+    //     break;
+    //   case 6:
+    //     diceEl.src = 'dice-6.png';
+    //     break;
     // }
-    currentScore += dice;
-    scores[activePlayer] += dice;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    // switch to next player
-    // if (activePlayer === 0) {
-    //   currentScore0 = 0;
-    //   currentScore0El.textContent = 0;
-    // } else {
-    //   currentScore1 = 0;
-    //   currentScore1El.textContent = 0;
-    // }
+    diceEl.src = `dice-${dice}.png`;
+    diceEl.classList.remove('hidden');
 
-    scores[activePlayer] = 0;
-    document.getElementById(`score--${activePlayer}`).textContent = 0;
+    // check for roll 1: if true, switch to next player
+    if (dice !== 1) {
+      // add dice to current score
+      // if (activePlayer === 0) {
+      //   currentScore0 += dice;
+      //   currentScore0El.textContent = currentScore0;
+      // } else {
+      //   currentScore1 += dice;
+      //   currentScore1El.textContent = currentScore1;
+      // }
+      currentScore += dice;
+      // scores[activePlayer] += dice; // moved to btnHold event handler
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      // switch to next player
+      // if (activePlayer === 0) {
+      //   currentScore0 = 0;
+      //   currentScore0El.textContent = 0;
+      // } else {
+      //   currentScore1 = 0;
+      //   currentScore1El.textContent = 0;
+      // }
 
-    switchPlayer();
+      scores[activePlayer] = 0;
+      document.getElementById(`score--${activePlayer}`).textContent = 0;
+
+      // Note: implemented before watching Holding Current Score lecture
+      switchPlayer();
+    }
   }
 });
 
+// Lecture: Holding Current Score
 btnHold.addEventListener('click', function () {
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
-  switchPlayer();
+  if (playing) {
+    scores[activePlayer] += currentScore;
+
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    if (scores[activePlayer] > 20) {
+      playing = false;
+
+      diceEl.classList.add('hidden');
+
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+    } else {
+      // Note: implemented before watching Holding Current Score lecture
+      switchPlayer();
+    }
+  }
+});
+
+btnNew.addEventListener('click', function () {
+  playing = true;
 });
