@@ -18,6 +18,7 @@
 // - concurrency model: how JS engine handles multiple tasks happening at the same time
 // non-blocking event loop - takes long-running tasks, executes them in "background", and puts them back in the main thread once they are finished
 
+// -------------------------------------------------------------------------------------------------------------
 // Lecture: The JavaScript Engine and Runtime
 // --- JS engine ---
 // JS engine - computer program that runs JS code
@@ -42,6 +43,7 @@
 // - callback queue - contains callback functions from DOM event listeners
 // - event loop - interaction between callback queue and call stack; essential for non-blocking concurrency model
 
+// -------------------------------------------------------------------------------------------------------------
 // Lecture: Execution Contexts and The Call Stack
 // Execution
 // - creation of global execution code (for top-level code, i.e. not inside a function)
@@ -62,3 +64,57 @@
 
 // JS Engine = call stack + memory heap
 // Call stack - ECs are stacked on top of each other to keep track where we are in the execution
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Scope and The Scope Chain
+// scoping - how variables are organized and accessed
+// lexical scoping - scoping is controlled by placement of functions and blocks in code
+// scope - space or environment in which a certain variable is declared (global, function and block scopes)
+// scope of a variable - region of code where a certain variable can be accessed.
+
+// Global scope
+// - outside of any function or block
+// - variables declared here are accessible everywhere (global variables)
+
+// Function scope
+// - variables are accessible only inside function (function-scoped), not outside
+// - also called local scope
+
+// Block scope (ES6)
+// - variables are accessible only inside block (block-scoped)
+// - block scope applied only to let and const variables
+// - var variables are visible outside block (function-scoped)
+// - functions are also block-scoped (only in strict mode)
+
+// Inner scopes have access to variables (and arguments) from all outer scopes.
+// Inner scopes search for variables in outer scopes - variable lookup in scope chain
+// Outer scopes cannot look down to inner scopes.
+
+// const name = 'Jonas';
+ 
+// function first() {
+//     const age = 30;
+    
+//     function second() {
+//         const job = 'teacher';
+//         console.log(`${name} is ${age} year-old ${job}`);
+//     }
+ 
+//     second();
+// }
+ 
+// first();
+
+// var variables declared within blocks are visible outside the block (function-scoped)
+
+// Scope chain - order in which functions are written in the code
+// Call stack - order in which functions are called
+
+// Conclusions:
+// - scoping - where do variables live? Where can a variable be accessed and where not?
+// - 3 types of scope in JS: global, function, block
+// - let and const variables are block-scoped, var variables are function scoped
+// - lexical scoping - rules for accessing variables are based on where exactly variables are declared in code
+// - scope chain - every scope has access to outer scopes (not the other way around)
+// - variable lookup - engine looks up in the current scope and then in the scope chain to find variables
+// - scope chain (how and were variables are declared) has nothing to do with call stack (order in which functions are called)
