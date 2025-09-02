@@ -41,3 +41,24 @@
 // - WEB APIs - functionalities provided to the JS engine, but that are not past of JS itself
 // - callback queue - contains callback functions from DOM event listeners
 // - event loop - interaction between callback queue and call stack; essential for non-blocking concurrency model
+
+// Lecture: Execution Contexts and The Call Stack
+// Execution
+// - creation of global execution code (for top-level code, i.e. not inside a function)
+// - execution of top-level code inside the global EC
+// - execution of functions and waiting for callbacks
+
+// Execution context (EC) - environment that stores all the necessary info for some code to be executed:
+// - variable environment (let, const, var; functions, arguments)
+// - scope chain
+// - this keyword
+
+// ECs are generated during "creation phase"
+// There is exactly one global EC for top-level code.
+// There is an EC for each function.
+// All ECs make the call stack.
+
+// Note: Arrow functions don't have their own arguments object and this keyword. They inherit it from the closes parent.
+
+// JS Engine = call stack + memory heap
+// Call stack - ECs are stacked on top of each other to keep track where we are in the execution
