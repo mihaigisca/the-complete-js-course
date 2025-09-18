@@ -118,3 +118,54 @@
 // - scope chain - every scope has access to outer scopes (not the other way around)
 // - variable lookup - engine looks up in the current scope and then in the scope chain to find variables
 // - scope chain (how and were variables are declared) has nothing to do with call stack (order in which functions are called)
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Scoping in Practice
+function calcAge(birthYear) {
+    const age = 2037 - birthYear;
+
+    // console.log(firstName); // firstName visible as part of outer scope (global in this case)
+    // console.log(lastName); // lastName not found neither in this scope nor in outer scopes
+
+    function printAge() {
+        // age and birthYear visible as part of outer scope (one level above)
+        // firstName visible as part of outer scope (two levels above)
+        let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+        console.log(output);
+
+        if (birthYear >= 1981 && birthYear <= 1996) {
+            var isMillenial = true;
+
+            // firstName visible as part of outer scope (three levels above)
+            // const str = `Oh, and you are a millenial, ${firstName}`;
+            // console.log(str);
+
+            // Creating NEW variable with same name as outer's scope variable
+            const firstName = 'Steven';
+
+            // Reassigning outer scope's variable
+            output = 'NEW OUTPUT!';
+
+            const str = `Oh, and you are a millenial, ${firstName}`; // firstName look-up stops at first finding
+            console.log(str);
+
+            function add(a, b) {
+                return a + b;
+            }
+        }
+
+        // console.log(str); // const and let variables are block-scoped - not visible outside the if block
+        console.log(isMillenial); // var variable is function-scoped - visible outside the if block
+        // add(1, 2); // functions are block-scoped (only in strict mode) - not visible outside the if block
+        console.log(output);
+    }
+
+    printAge();
+    
+    return age;
+}
+
+const firstName = 'Jonas';
+calcAge(1991);
+// console.log(age); // age not found because it is part of inner scope (calcAge function)
+// console.log(printAge); // printAge not found because it is part of inner scope (calcAge function)
