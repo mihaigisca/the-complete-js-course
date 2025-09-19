@@ -121,51 +121,68 @@
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Scoping in Practice
-function calcAge(birthYear) {
-    const age = 2037 - birthYear;
+// function calcAge(birthYear) {
+//     const age = 2037 - birthYear;
 
-    // console.log(firstName); // firstName visible as part of outer scope (global in this case)
-    // console.log(lastName); // lastName not found neither in this scope nor in outer scopes
+//     // console.log(firstName); // firstName visible as part of outer scope (global in this case)
+//     // console.log(lastName); // lastName not found neither in this scope nor in outer scopes
 
-    function printAge() {
-        // age and birthYear visible as part of outer scope (one level above)
-        // firstName visible as part of outer scope (two levels above)
-        let output = `${firstName}, you are ${age}, born in ${birthYear}`;
-        console.log(output);
+//     function printAge() {
+//         // age and birthYear visible as part of outer scope (one level above)
+//         // firstName visible as part of outer scope (two levels above)
+//         let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+//         console.log(output);
 
-        if (birthYear >= 1981 && birthYear <= 1996) {
-            var isMillenial = true;
+//         if (birthYear >= 1981 && birthYear <= 1996) {
+//             var isMillenial = true;
 
-            // firstName visible as part of outer scope (three levels above)
-            // const str = `Oh, and you are a millenial, ${firstName}`;
-            // console.log(str);
+//             // firstName visible as part of outer scope (three levels above)
+//             // const str = `Oh, and you are a millenial, ${firstName}`;
+//             // console.log(str);
 
-            // Creating NEW variable with same name as outer's scope variable
-            const firstName = 'Steven';
+//             // Creating NEW variable with same name as outer's scope variable
+//             // it is normal to have same-name variables across different scopes
+//             const firstName = 'Steven';
 
-            // Reassigning outer scope's variable
-            output = 'NEW OUTPUT!';
+//             // Reassigning outer scope's variable
+//             output = 'NEW OUTPUT!';
 
-            const str = `Oh, and you are a millenial, ${firstName}`; // firstName look-up stops at first finding
-            console.log(str);
+//             const str = `Oh, and you are a millenial, ${firstName}`; // firstName look-up stops at first finding
+//             console.log(str);
 
-            function add(a, b) {
-                return a + b;
-            }
-        }
+//             function add(a, b) {
+//                 return a + b;
+//             }
+//         }
 
-        // console.log(str); // const and let variables are block-scoped - not visible outside the if block
-        console.log(isMillenial); // var variable is function-scoped - visible outside the if block
-        // add(1, 2); // functions are block-scoped (only in strict mode) - not visible outside the if block
-        console.log(output);
-    }
+//         // console.log(str); // const and let variables are block-scoped - not visible outside the if block
+//         console.log(isMillenial); // var variable is function-scoped - visible outside the if block
+//         // add(1, 2); // functions are block-scoped (only in strict mode) - not visible outside the if block
+//         console.log(output);
+//     }
 
-    printAge();
+//     printAge();
     
-    return age;
-}
+//     return age;
+// }
 
-const firstName = 'Jonas';
-calcAge(1991);
-// console.log(age); // age not found because it is part of inner scope (calcAge function)
-// console.log(printAge); // printAge not found because it is part of inner scope (calcAge function)
+// const firstName = 'Jonas';
+// calcAge(1991);
+// // console.log(age); // age not found because it is part of inner scope (calcAge function)
+// // console.log(printAge); // printAge not found because it is part of inner scope (calcAge function)
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Variable Environment: Hoisting and The TDZ
+// > hoisting - makes some types of variables accessible/usable before they are actually declared.
+// > before execution, code is scanned for variable declarations and, for each variable,
+//   a new property is created in the variable environment object.
+// > TDZ - temporal dead zone
+//
+// function declaration - hoisted (init value when accessed before declaration - actual function)
+// var variables - hoisted (init value when accessed before declaration - undefined)
+// let/const variables - not hoisted (init value when accessed before declaration - uninitialized, TDZ, error)
+// function expressions and arrow - depends if using var or let/const
+//
+// access undeclared variable - error "variable not defined"
+// access let/const variable before declaration - error "cannot access variable before initialization"
+// TDZ - a lot easier to avoid and catch errors
