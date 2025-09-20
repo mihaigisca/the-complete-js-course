@@ -245,3 +245,24 @@ const z = 3;
 console.log(x === window.x); // true
 console.log(y === window.y); // false
 console.log(z === window.z); // false
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: The this Keyword
+// this keyword/variable - created for every execution context (every function), pointing to the function owner
+// this variable is ONLY assigned when the function is actually called
+
+// 4 differen ways in which functions can be called
+// 1. as a method (function attached to an object) - this points to the object that is calling the method
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    return 2037 - this.year;
+  },
+};
+console.log(jonas.calcAge()); // 46
+
+// 2. simple function call (not attached to any object) - this is undefined in strict mode (window object otherwise)
+// 3. arrow functions - inherits this from its parent scope (lexical this)
+// 4. event listeners - this points to the DOM element that the handler is attached to
+
+// IMPORTANT: this does NOT point to the function itself, NOR to its variable environment
