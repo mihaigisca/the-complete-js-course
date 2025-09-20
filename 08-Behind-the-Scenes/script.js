@@ -91,18 +91,18 @@
 // Outer scopes cannot look down to inner scopes.
 
 // const name = 'Jonas';
- 
+
 // function first() {
 //     const age = 30;
-    
+
 //     function second() {
 //         const job = 'teacher';
 //         console.log(`${name} is ${age} year-old ${job}`);
 //     }
- 
+
 //     second();
 // }
- 
+
 // first();
 
 // var variables declared within blocks are visible outside the block (function-scoped)
@@ -162,7 +162,7 @@
 //     }
 
 //     printAge();
-    
+
 //     return age;
 // }
 
@@ -183,6 +183,65 @@
 // let/const variables - not hoisted (init value when accessed before declaration - uninitialized, TDZ, error)
 // function expressions and arrow - depends if using var or let/const
 //
+// TDZ - a lot easier to avoid and catch errors
 // access undeclared variable - error "variable not defined"
 // access let/const variable before declaration - error "cannot access variable before initialization"
-// TDZ - a lot easier to avoid and catch errors
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Hoisting and TDZ in Practice
+
+console.log('--- Variables ---');
+// Variables
+console.log(me); // accessing var variables before declaration: no error, value 'undefined'
+// console.log(job); // accessing let variables before declaration: error 'Cannot access 'job' before initialization'
+// console.log(age); // accessing const variables before declaration: error Cannot access 'age' before initialization
+
+var me = 'me';
+let job = 'student';
+const age = 33;
+
+console.log('--- Functions ---');
+// Functions
+console.log(addDecl(1, 2)); // accessing function declaration before definition: works
+// console.log(addExpr(1, 2)); // accessing const function expression before definition: Cannot access 'addExpr' before initialization
+// console.log(addArr(1, 2)); // accessing var function expression before definition: error addExprVar is not a function
+console.log(addArr); // being undefined, above translates to 'undefined(1, 2)'
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+var addArr = (a, b) => a + b;
+
+console.log('--- Hoisting pitfall ---');
+// Hoisting pitfall
+console.log(numProjects);
+if (!numProjects)
+  // numProjects is 'undefined', but still a falsy value, so method is called - NOT GOOD!
+  deleteShoppingCart();
+
+var numProjects = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+// Best practices
+// - don't use var
+// - declare variables at the top of each scope
+// - declare functions first before using
+
+var x = 1;
+let y = 2;
+const z = 3;
+
+// window - global object in developer tools console
+// only 'x' variable shows up in the window object
+// variables declared with let and const do not create properties in window object
+console.log(x === window.x); // true
+console.log(y === window.y); // false
+console.log(z === window.z); // false
