@@ -363,21 +363,75 @@
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Memory Management: Primitives vs. Objects
 
-// Memory management - how JS allocates and releases the space in memory (behind the scenes)
-// Memory lifecycle: allocate (reserve), use (write, read, update), release (free)
-// Memory allocation:
-// > for different types of values memory is allocatedin different places in JS engine
-// > primitive values: Number, String, Boolean, Null, Undefined, Symbol, BigIng
-// > objects: object literals, arrays, functions etc.
-// > JE - callstack (execution contexts) + heap (object storage)
-// > primitive values are stored in call stack (in corresponding execution context)
-// > objects are stored in heap
-// > references to objects (location/memory addresses of objects in heap) are stored in call stack
-const a = 1; // a is 1
-let b = a; // b is 1
-b++; // b is 2, a is still 1
+// // Memory management - how JS allocates and releases the space in memory (behind the scenes)
+// // Memory lifecycle: allocate (reserve), use (write, read, update), release (free)
+// // Memory allocation:
+// // > for different types of values memory is allocatedin different places in JS engine
+// // > primitive values: Number, String, Boolean, Null, Undefined, Symbol, BigIng
+// // > objects: object literals, arrays, functions etc.
+// // > JE - callstack (execution contexts) + heap (object storage)
+// // > primitive values are stored in call stack (in corresponding execution context)
+// // > objects are stored in heap
+// // > references to objects (location/memory addresses of objects in heap) are stored in call stack
+// const a = 1; // a is 1
+// let b = a; // b is 1
+// b++; // b is 2, a is still 1
 
-const obj1 = { c: 1 };
-const obj2 = obj1; // obj2 points to the same object as obj1
-obj2.c = 2; // changing obj2 also changes obj1 as both point to the same location in memory
-console.log(obj1); // obj1.c is 2
+// const obj1 = { c: 1 };
+// const obj2 = obj1; // obj2 points to the same object as obj1
+// obj2.c = 2; // changing obj2 also changes obj1 as both point to the same location in memory
+// console.log(obj1); // obj1.c is 2
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Object References in Practice (Shallow vs. Deep Copies)
+
+const jessica1 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
+
+const jessicaMarried = marryPerson(jessica1, 'Davis');
+
+// const jessicaMarried = jessica1; // both variables point to the same object in memory
+// jessicaMarried.lastName = 'Davis'; // changing jessicaMarried also changes jessica
+
+console.log('Before:', jessica1);
+console.log('After:', jessicaMarried);
+
+// declaring a const object refer to the reference in memory
+// that is why we can update properties of an object (e.g., lastName above)
+// but we cannot reassign the object itself (e.g., jessica = {} would give an error)
+
+// create a brand new object copy
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+// Shallow copy of an object using ... spread operator
+const jessicaCopy = { ...jessica };
+jessicaCopy.lastName = 'Davis';
+// jessicaCopy.family.push('Mary');
+// jessicaCopy.family.push('John');
+
+// lastName updated only in jessicaCopy
+// !!! family updated in BOTH objects as it is a shallow copy
+// meaning that during copying the objects references were copied and not created anew  !!!
+console.log('Before:', jessica);
+console.log('After:', jessicaCopy);
+
+// Deep copy (clone)
+const jessicaClone = structuredClone(jessica);
+jessicaClone.lastName = 'Davis';
+jessicaClone.family.push('Mary');
+jessicaClone.family.push('John');
+console.log('Original:', jessica);
+console.log('Clone:', jessicaClone);
