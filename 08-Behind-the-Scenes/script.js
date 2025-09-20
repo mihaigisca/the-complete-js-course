@@ -190,79 +190,115 @@
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Hoisting and TDZ in Practice
 
-console.log('--- Variables ---');
-// Variables
-console.log(me); // accessing var variables before declaration: no error, value 'undefined'
-// console.log(job); // accessing let variables before declaration: error 'Cannot access 'job' before initialization'
-// console.log(age); // accessing const variables before declaration: error Cannot access 'age' before initialization
+// console.log('--- Variables ---');
+// // Variables
+// console.log(me); // accessing var variables before declaration: no error, value 'undefined'
+// // console.log(job); // accessing let variables before declaration: error 'Cannot access 'job' before initialization'
+// // console.log(age); // accessing const variables before declaration: error Cannot access 'age' before initialization
 
-var me = 'me';
-let job = 'student';
-const age = 33;
+// var me = 'me';
+// let job = 'student';
+// const age = 33;
 
-console.log('--- Functions ---');
-// Functions
-console.log(addDecl(1, 2)); // accessing function declaration before definition: works
-// console.log(addExpr(1, 2)); // accessing const function expression before definition: Cannot access 'addExpr' before initialization
-// console.log(addArr(1, 2)); // accessing var function expression before definition: error addExprVar is not a function
-console.log(addArr); // being undefined, above translates to 'undefined(1, 2)'
+// console.log('--- Functions ---');
+// // Functions
+// console.log(addDecl(1, 2)); // accessing function declaration before definition: works
+// // console.log(addExpr(1, 2)); // accessing const function expression before definition: Cannot access 'addExpr' before initialization
+// // console.log(addArr(1, 2)); // accessing var function expression before definition: error addExprVar is not a function
+// console.log(addArr); // being undefined, above translates to 'undefined(1, 2)'
 
-function addDecl(a, b) {
-  return a + b;
-}
+// function addDecl(a, b) {
+//   return a + b;
+// }
 
-const addExpr = function (a, b) {
-  return a + b;
-};
+// const addExpr = function (a, b) {
+//   return a + b;
+// };
 
-var addArr = (a, b) => a + b;
+// var addArr = (a, b) => a + b;
 
-console.log('--- Hoisting pitfall ---');
-// Hoisting pitfall
-console.log(numProjects);
-if (!numProjects)
-  // numProjects is 'undefined', but still a falsy value, so method is called - NOT GOOD!
-  deleteShoppingCart();
+// console.log('--- Hoisting pitfall ---');
+// // Hoisting pitfall
+// console.log(numProjects);
+// if (!numProjects)
+//   // numProjects is 'undefined', but still a falsy value, so method is called - NOT GOOD!
+//   deleteShoppingCart();
 
-var numProjects = 10;
+// var numProjects = 10;
 
-function deleteShoppingCart() {
-  console.log('All products deleted!');
-}
+// function deleteShoppingCart() {
+//   console.log('All products deleted!');
+// }
 
-// Best practices
-// - don't use var
-// - declare variables at the top of each scope
-// - declare functions first before using
+// // Best practices
+// // - don't use var
+// // - declare variables at the top of each scope
+// // - declare functions first before using
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
 
-// window - global object in developer tools console
-// only 'x' variable shows up in the window object
-// variables declared with let and const do not create properties in window object
-console.log(x === window.x); // true
-console.log(y === window.y); // false
-console.log(z === window.z); // false
+// // window - global object in developer tools console
+// // only 'x' variable shows up in the window object
+// // variables declared with let and const do not create properties in window object
+// console.log(x === window.x); // true
+// console.log(y === window.y); // false
+// console.log(z === window.z); // false
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: The this Keyword
-// this keyword/variable - created for every execution context (every function), pointing to the function owner
-// this variable is ONLY assigned when the function is actually called
+// // this keyword/variable - created for every execution context (every function), pointing to the function owner
+// // this variable is ONLY assigned when the function is actually called
 
-// 4 differen ways in which functions can be called
-// 1. as a method (function attached to an object) - this points to the object that is calling the method
+// // 4 differen ways in which functions can be called
+// // 1. as a method (function attached to an object) - this points to the object that is calling the method
+// const jonas = {
+//   year: 1991,
+//   calcAge: function () {
+//     return 2037 - this.year;
+//   },
+// };
+// console.log(jonas.calcAge()); // 46
+
+// // 2. simple function call (not attached to any object) - this is undefined in strict mode (window object otherwise)
+// // 3. arrow functions - inherits this from its parent scope (lexical this)
+// // 4. event listeners - this points to the DOM element that the handler is attached to
+
+// // IMPORTANT: this does NOT point to the function itself, NOR to its variable environment
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: The this Keyword in Practice
+console.log(this); // in global scope, this points to the window object (browser)
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this); // in regular function, this is undefined (in strict mode)
+};
+calcAge(1991);
+
+const calcAgeArr = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this); // inherits this from parent scope which happens to be global scope (window object)
+};
+calcAgeArr(1991);
+
 const jonas = {
   year: 1991,
   calcAge: function () {
-    return 2037 - this.year;
+    console.log(2037 - this.year);
+    console.log(this); // this points to the jonas object
   },
 };
-console.log(jonas.calcAge()); // 46
+jonas.calcAge();
 
-// 2. simple function call (not attached to any object) - this is undefined in strict mode (window object otherwise)
-// 3. arrow functions - inherits this from its parent scope (lexical this)
-// 4. event listeners - this points to the DOM element that the handler is attached to
+const lucy = {
+  year: 2018,
+};
 
-// IMPORTANT: this does NOT point to the function itself, NOR to its variable environment
+lucy.calcAge = jonas.calcAge; // method borrowing
+lucy.calcAge(); // this points to lucy object as lucy is the caller
+
+const funcNotPartOfObj = jonas.calcAge;
+// funcNotPartOfObj(); // this is now undefined -> error Cannot read properties of undefined
+// as console.log(2037 - this.year) translates to console.log(2037 - undefined.year)
