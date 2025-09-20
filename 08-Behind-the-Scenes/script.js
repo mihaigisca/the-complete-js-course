@@ -269,36 +269,93 @@
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: The this Keyword in Practice
-console.log(this); // in global scope, this points to the window object (browser)
+// console.log(this); // in global scope, this points to the window object (browser)
 
-const calcAge = function (birthYear) {
-  console.log(2037 - birthYear);
-  console.log(this); // in regular function, this is undefined (in strict mode)
-};
-calcAge(1991);
+// const calcAge = function (birthYear) {
+//   console.log(2037 - birthYear);
+//   console.log(this); // in regular function, this is undefined (in strict mode)
+// };
+// calcAge(1991);
 
-const calcAgeArr = birthYear => {
-  console.log(2037 - birthYear);
-  console.log(this); // inherits this from parent scope which happens to be global scope (window object)
-};
-calcAgeArr(1991);
+// const calcAgeArr = birthYear => {
+//   console.log(2037 - birthYear);
+//   console.log(this); // inherits this from parent scope which happens to be global scope (window object)
+// };
+// calcAgeArr(1991);
+
+// const jonas = {
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(2037 - this.year);
+//     console.log(this); // this points to the jonas object
+//   },
+// };
+// jonas.calcAge();
+
+// const lucy = {
+//   year: 2018,
+// };
+
+// lucy.calcAge = jonas.calcAge; // method borrowing
+// lucy.calcAge(); // this points to lucy object as lucy is the caller
+
+// const funcNotPartOfObj = jonas.calcAge;
+// // funcNotPartOfObj(); // this is now undefined -> error Cannot read properties of undefined
+// // as console.log(2037 - this.year) translates to console.log(2037 - undefined.year)
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: The this Keyword in Practice
+
+// var firstName = 'Lucy'; // creates property in window object (global scope)
 
 const jonas = {
+  firstName: 'Jonas',
   year: 1991,
   calcAge: function () {
     console.log(2037 - this.year);
-    console.log(this); // this points to the jonas object
+
+    // this pitfall 2 - calling a function inside a method
+    // const isMillenial = function () {
+    //   console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+
+    // outdated solution to 'this pitfall 2' - create a self (or that) property and assign this to it
+    // const self = this; // (or that) keep track of this keyword
+    // const isMillenial = function () {
+    //   console.log(self.year >= 1981 && self.year <= 1996);
+    // };
+
+    // modern solution to 'this pitfall 2' - use an arrow function as it will inherit this from calcAge method
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+
+    isMillenial(); // clear rule - regular function call has its this keyword set to undefined -> error Cannot read properties of undefined
   },
+
+  // this pitfall 1 - arrow function does not get its own this keyword
+  greet: () => console.log(`Hey ${this.firstName}`), // result: 'Hey undefined' as arrow function does not have its own this
+  // it inherits from parent, being declared within the object, the object parent is the global scope
+  // so it would print 'Hey Lucy' if var firstName = 'Lucy' line is uncommented
 };
+jonas.greet();
 jonas.calcAge();
 
-const lucy = {
-  year: 2018,
+// IMPORTANT: never use arrow functions as methods (object properties that are functions)
+
+// arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments); // arguments object - array-like structure available only in regular functions
+  return a + b;
 };
+addExpr(2, 5);
+addExpr(2, 5, 8, 12); // it is legal to pass more arguments, they are not named, but they exist in arguments object
 
-lucy.calcAge = jonas.calcAge; // method borrowing
-lucy.calcAge(); // this points to lucy object as lucy is the caller
+var addArr = (a, b) => {
+  // console.log(arguments); // arguments object not available in arrow functions -> error arguments is not defined
+  return a + b;
+};
+addArr(1, 2);
 
-const funcNotPartOfObj = jonas.calcAge;
-// funcNotPartOfObj(); // this is now undefined -> error Cannot read properties of undefined
-// as console.log(2037 - this.year) translates to console.log(2037 - undefined.year)
+// Note: nowadays arguments object is not really needed as there is a better alternative
