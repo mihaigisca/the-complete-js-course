@@ -385,53 +385,68 @@
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Object References in Practice (Shallow vs. Deep Copies)
 
-const jessica1 = {
-  firstName: 'Jessica',
-  lastName: 'Williams',
-  age: 27,
-};
+// const jessica1 = {
+//   firstName: 'Jessica',
+//   lastName: 'Williams',
+//   age: 27,
+// };
 
-function marryPerson(originalPerson, newLastName) {
-  originalPerson.lastName = newLastName;
-  return originalPerson;
-}
+// function marryPerson(originalPerson, newLastName) {
+//   originalPerson.lastName = newLastName;
+//   return originalPerson;
+// }
 
-const jessicaMarried = marryPerson(jessica1, 'Davis');
+// const jessicaMarried = marryPerson(jessica1, 'Davis');
 
-// const jessicaMarried = jessica1; // both variables point to the same object in memory
-// jessicaMarried.lastName = 'Davis'; // changing jessicaMarried also changes jessica
+// // const jessicaMarried = jessica1; // both variables point to the same object in memory
+// // jessicaMarried.lastName = 'Davis'; // changing jessicaMarried also changes jessica
 
-console.log('Before:', jessica1);
-console.log('After:', jessicaMarried);
+// console.log('Before:', jessica1);
+// console.log('After:', jessicaMarried);
 
-// declaring a const object refer to the reference in memory
-// that is why we can update properties of an object (e.g., lastName above)
-// but we cannot reassign the object itself (e.g., jessica = {} would give an error)
+// // declaring a const object refer to the reference in memory
+// // that is why we can update properties of an object (e.g., lastName above)
+// // but we cannot reassign the object itself (e.g., jessica = {} would give an error)
 
-// create a brand new object copy
-const jessica = {
-  firstName: 'Jessica',
-  lastName: 'Williams',
-  age: 27,
-  family: ['Alice', 'Bob'],
-};
+// // create a brand new object copy
+// const jessica = {
+//   firstName: 'Jessica',
+//   lastName: 'Williams',
+//   age: 27,
+//   family: ['Alice', 'Bob'],
+// };
 
-// Shallow copy of an object using ... spread operator
-const jessicaCopy = { ...jessica };
-jessicaCopy.lastName = 'Davis';
-// jessicaCopy.family.push('Mary');
-// jessicaCopy.family.push('John');
+// // Shallow copy of an object using ... spread operator
+// const jessicaCopy = { ...jessica };
+// jessicaCopy.lastName = 'Davis';
+// // jessicaCopy.family.push('Mary');
+// // jessicaCopy.family.push('John');
 
-// lastName updated only in jessicaCopy
-// !!! family updated in BOTH objects as it is a shallow copy
-// meaning that during copying the objects references were copied and not created anew  !!!
-console.log('Before:', jessica);
-console.log('After:', jessicaCopy);
+// // lastName updated only in jessicaCopy
+// // !!! family updated in BOTH objects as it is a shallow copy
+// // meaning that during copying the objects references were copied and not created anew  !!!
+// console.log('Before:', jessica);
+// console.log('After:', jessicaCopy);
 
-// Deep copy (clone)
-const jessicaClone = structuredClone(jessica);
-jessicaClone.lastName = 'Davis';
-jessicaClone.family.push('Mary');
-jessicaClone.family.push('John');
-console.log('Original:', jessica);
-console.log('Clone:', jessicaClone);
+// // Deep copy (clone)
+// const jessicaClone = structuredClone(jessica);
+// jessicaClone.lastName = 'Davis';
+// jessicaClone.family.push('Mary');
+// jessicaClone.family.push('John');
+// console.log('Original:', jessica);
+// console.log('Clone:', jessicaClone);
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Memory Management: Garbage Collection
+// Free memory that is no longer needed within
+// > call stack
+//   -- variable environment is simply deleted when EC is popped off the stack
+//   -- global variables are nevel deleted as global EC is never popped off the stack
+// > heap
+//   -- Garbage collection - process used by JS engine to find out which objects in heap are no longer needed
+//   -- no control of Garbage Collection to developers
+// > mark-and-sweep algorithm - finds unused objects and removes them from memory
+//   -- mark all objects that are reachable from roots (ECs, event listeners, timers, closures) as "alive"
+//   -- delete all unmarked (unreachable) objects and reclaim memory for future allocation
+// > memory leak - when objects that are no longer needed are incorrectly still reachable and cannot be garbage collected
+//   -- old and unnecessary event listeners and timers (deactivate them when not needed anymore)
