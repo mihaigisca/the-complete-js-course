@@ -304,58 +304,80 @@
 // // as console.log(2037 - this.year) translates to console.log(2037 - undefined.year)
 
 // -------------------------------------------------------------------------------------------------------------
-// Lecture: The this Keyword in Practice
+// Lecture: Regular Functions vs. Arrow Functions
 
-// var firstName = 'Lucy'; // creates property in window object (global scope)
+// // var firstName = 'Lucy'; // creates property in window object (global scope)
 
-const jonas = {
-  firstName: 'Jonas',
-  year: 1991,
-  calcAge: function () {
-    console.log(2037 - this.year);
+// const jonas = {
+//   firstName: 'Jonas',
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(2037 - this.year);
 
-    // this pitfall 2 - calling a function inside a method
-    // const isMillenial = function () {
-    //   console.log(this.year >= 1981 && this.year <= 1996);
-    // };
+//     // this pitfall 2 - calling a function inside a method
+//     // const isMillenial = function () {
+//     //   console.log(this.year >= 1981 && this.year <= 1996);
+//     // };
 
-    // outdated solution to 'this pitfall 2' - create a self (or that) property and assign this to it
-    // const self = this; // (or that) keep track of this keyword
-    // const isMillenial = function () {
-    //   console.log(self.year >= 1981 && self.year <= 1996);
-    // };
+//     // outdated solution to 'this pitfall 2' - create a self (or that) property and assign this to it
+//     // const self = this; // (or that) keep track of this keyword
+//     // const isMillenial = function () {
+//     //   console.log(self.year >= 1981 && self.year <= 1996);
+//     // };
 
-    // modern solution to 'this pitfall 2' - use an arrow function as it will inherit this from calcAge method
-    const isMillenial = () => {
-      console.log(this);
-      console.log(this.year >= 1981 && this.year <= 1996);
-    };
+//     // modern solution to 'this pitfall 2' - use an arrow function as it will inherit this from calcAge method
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
 
-    isMillenial(); // clear rule - regular function call has its this keyword set to undefined -> error Cannot read properties of undefined
-  },
+//     isMillenial(); // clear rule - regular function call has its this keyword set to undefined -> error Cannot read properties of undefined
+//   },
 
-  // this pitfall 1 - arrow function does not get its own this keyword
-  greet: () => console.log(`Hey ${this.firstName}`), // result: 'Hey undefined' as arrow function does not have its own this
-  // it inherits from parent, being declared within the object, the object parent is the global scope
-  // so it would print 'Hey Lucy' if var firstName = 'Lucy' line is uncommented
-};
-jonas.greet();
-jonas.calcAge();
+//   // this pitfall 1 - arrow function does not get its own this keyword
+//   greet: () => console.log(`Hey ${this.firstName}`), // result: 'Hey undefined' as arrow function does not have its own this
+//   // it inherits from parent, being declared within the object, the object parent is the global scope
+//   // so it would print 'Hey Lucy' if var firstName = 'Lucy' line is uncommented
+// };
+// jonas.greet();
+// jonas.calcAge();
 
-// IMPORTANT: never use arrow functions as methods (object properties that are functions)
+// // IMPORTANT: never use arrow functions as methods (object properties that are functions)
 
-// arguments keyword
-const addExpr = function (a, b) {
-  console.log(arguments); // arguments object - array-like structure available only in regular functions
-  return a + b;
-};
-addExpr(2, 5);
-addExpr(2, 5, 8, 12); // it is legal to pass more arguments, they are not named, but they exist in arguments object
+// // arguments keyword
+// const addExpr = function (a, b) {
+//   console.log(arguments); // arguments object - array-like structure available only in regular functions
+//   return a + b;
+// };
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12); // it is legal to pass more arguments, they are not named, but they exist in arguments object
 
-var addArr = (a, b) => {
-  // console.log(arguments); // arguments object not available in arrow functions -> error arguments is not defined
-  return a + b;
-};
-addArr(1, 2);
+// var addArr = (a, b) => {
+//   // console.log(arguments); // arguments object not available in arrow functions -> error arguments is not defined
+//   return a + b;
+// };
+// addArr(1, 2);
 
-// Note: nowadays arguments object is not really needed as there is a better alternative
+// // Note: nowadays arguments object is not really needed as there is a better alternative
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Memory Management: Primitives vs. Objects
+
+// Memory management - how JS allocates and releases the space in memory (behind the scenes)
+// Memory lifecycle: allocate (reserve), use (write, read, update), release (free)
+// Memory allocation:
+// > for different types of values memory is allocatedin different places in JS engine
+// > primitive values: Number, String, Boolean, Null, Undefined, Symbol, BigIng
+// > objects: object literals, arrays, functions etc.
+// > JE - callstack (execution contexts) + heap (object storage)
+// > primitive values are stored in call stack (in corresponding execution context)
+// > objects are stored in heap
+// > references to objects (location/memory addresses of objects in heap) are stored in call stack
+const a = 1; // a is 1
+let b = a; // b is 1
+b++; // b is 2, a is still 1
+
+const obj1 = { c: 1 };
+const obj2 = obj1; // obj2 points to the same object as obj1
+obj2.c = 2; // changing obj2 also changes obj1 as both point to the same location in memory
+console.log(obj1); // obj1.c is 2
