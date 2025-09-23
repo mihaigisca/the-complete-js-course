@@ -44,4 +44,42 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Destructuring Arrays
+// // array destructuring is an ESX feature, a way of unpacking values from objects into separate variables
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+
+// const [x, y, z] = arr; // destructuring array into variables (remember const and square brackets, original array remains unchanged)
+// console.log(x, y, z);
+// console.log(arr);
+
+// // const [first, second] = restaurant.categories; // only destructuring first two elements of the array
+// const [first, , third] = restaurant.categories; // only destructuring first and third elements of the array (use empty space for skipping)
+// console.log(first, third);
+
+// let [main, , secondary] = restaurant.categories;
+// [main, secondary] = [secondary, main]; // switching variables using destructuring
+// console.log(main, secondary);
+
+// // receive 2 return values from a function
+// const [starter, mainCourse] = restaurant.order(2, 0); // destructuring the returned array from a function
+// console.log(starter, mainCourse);
+
+// const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested; // destructuring array
+// console.log(i, j);
+// const [k, , [l, m]] = nested; // destructuring nested array
+// console.log(k, l, m);
+
+// // default values
+// const [p = 1, q = 1, r = 1] = [8, 9]; // setting default values in case there are not enough values in the array
+// console.log(p, q, r);
