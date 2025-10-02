@@ -48,6 +48,34 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  // pass an object to a function
+  //   orderDelivery: function (object) {
+  //     console.log(object);
+  //   },
+
+  // destructure the object in the function parameters and set default values
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 // -------------------------------------------------------------------------------------------------------------
@@ -83,3 +111,158 @@ const restaurant = {
 // // default values
 // const [p = 1, q = 1, r = 1] = [8, 9]; // setting default values in case there are not enough values in the array
 // console.log(p, q, r);
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Destructuring Objects
+// // use curly braces to destructure objects and use the exact property names
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// // assigning new variable names
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// // setting default values
+// // menu property does not exist in the object and will take the default value
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// // mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// // {a, b} = obj; // error - JS thinks it is a code block and not an expression
+// ({ a, b } = obj); // need to wrap the expression in parentheses to work
+// console.log(a, b);
+
+// // nested objects
+// // const { fri } = openingHours;
+
+// // destructuring nested object
+// const {
+//   fri: { open, close },
+// } = openingHours;
+// console.log(open, close);
+
+// // destructuring nested object and renaming variables
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
+
+// // pass an inline object to a function
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: The Spread Operator
+// // spread operator (...) expands an array into all its elements (unpacks all array elements at once)
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]]; // old way of adding an array into another array
+// console.log(badNewArr);
+
+// const newArr = [1, 2, ...arr]; // unpack array into another array using spread operator
+// console.log(newArr);
+
+// // expanding array
+// // - when we need to extract all elements into an array
+// // - when we need to pass multiple values into a function
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci']; // adding an element to an array using spread operator
+// console.log(newMenu);
+
+// // spread operator is similar to destructuring, but it takes all array elements and does not create new variables
+// // use spread operator in places where we would otherwise write values separated by commas
+
+// // create shallow copy
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // join 2 arrays
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// // spread operator works on all iterables (arrays, strings, maps, sets, but NOT objects)
+// const str = 'Captain';
+// const letters = [...str, ' ', 'A']; // spread operator on a string
+// console.log(letters);
+// console.log(...str); // spreading string into separate characters
+
+// // Use escape character (\) to
+// // - break a long line of code
+// // - insert special characters in a string (like single quote \', new line \n, tab \t, etc)
+// // const ingredients = [
+// //   prompt("Let's make pasta! Ingredient 1?"),
+// //   prompt('Ingredient 2?'),
+// //   prompt('Ingredient 3?'),
+// // ];
+// // console.log(ingredients);
+
+// // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // passing array elements as separate arguments into a function the old way
+// // restaurant.orderPasta(...ingredients); // passing array elements as separate arguments into a function using spread operator
+
+// // since ES2018, we can use the spread operator on objects, even if it is not an iterable
+// const newRestaurant = {
+//   foundIn: 1987,
+//   ...restaurant,
+//   founder: 'Damigianni',
+// };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante la Famiglia';
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Rest Pattern and Parameters
+
+// // 1) Destructuring
+// // rest pattern uses the same syntax as spread operator (...), but it does the opposite of spreading:
+// // it packs individual elements into an array
+// // spread (...) operator is on the right side of the = operator
+// const arr = [1, 2, ...[3, 4]];
+
+// // rest (...) operator is on the left side of the = operator
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+
+// // rest pattern includes only the elements that have left, not those that were skipped
+// // thus rest pattern must be the last element (error otherwise)
+// console.log(pizza, risotto, otherFood);
+
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// // 2) Functions
+// // rest syntax takes multiple (rest) arguments and packs them into an array
+// const add = function (...numbers) {
+//   //   console.log(numbers);
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [23, 5, 7];
+// add(...x); // spread operator to pass array elements as separate arguments into a function
+
+// restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+// restaurant.orderPizza('mushrooms'); // rest parameter will be an empty array if no other arguments are passed
+
+// // spread operator - used where we would otherwise write VALUES separated by commas
+// // rest operator - used where we would otherwise write VARIABLES separated by commas
