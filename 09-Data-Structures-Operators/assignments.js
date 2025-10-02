@@ -240,3 +240,41 @@ console.log(rating, ratingsCount);
 const ratingStars = [63405, 1808];
 const [fiveStarRatings = 0, oneStarRatings = 0, threeStarRatings = 0] =
   ratingStars;
+
+// -------------------------------------------------------------------------------------------------------------
+// Assignment: Destructuring Objects
+const { title, author, ISBN } = books[0];
+console.log(title, author, ISBN);
+
+const tags = books[0].keywords; // destructuring into a variable with a new name
+const { keywords } = books[0]; // destructuring into a variable by property name
+// this was used by author in the video
+const { keywords: tags2 } = books[0]; // destructuring into an object by property name and renaming the variable
+console.log(tags);
+console.log(keywords);
+console.log(tags2);
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+console.log(language, programmingLanguage);
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+({ title: bookTitle, author: bookAuthor } = books[0]); // need to wrap in parentheses to avoid code block
+console.log(bookTitle, bookAuthor);
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+console.log(bookRating);
+
+const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+};
+printBookInfo({
+  title: 'Algorithms',
+  author: 'Robert Sedgewick',
+  year: '2011',
+});
+printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
