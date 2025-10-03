@@ -278,3 +278,13 @@ printBookInfo({
   year: '2011',
 });
 printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
+
+// -------------------------------------------------------------------------------------------------------------
+// Assignment: The Spread Operator
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+
+const spellWord = function (str) {
+  console.log(...str);
+};
+spellWord('JavaScript');
