@@ -288,3 +288,16 @@ const spellWord = function (str) {
   console.log(...str);
 };
 spellWord('JavaScript');
+
+// -------------------------------------------------------------------------------------------------------------
+// Assignment: Rest Pattern and Parameters
+const [mainKeyword, ...rest] = books[0].keywords; // destructuring array
+console.log(mainKeyword, rest);
+
+const { publisher: bookPublisher, ...restOfTheBook } = books[1]; // destructuring object
+console.log(bookPublisher, restOfTheBook);
+
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors`);
+};
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
