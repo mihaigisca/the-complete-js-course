@@ -266,3 +266,35 @@ const restaurant = {
 
 // // spread operator - used where we would otherwise write VALUES separated by commas
 // // rest operator - used where we would otherwise write VARIABLES separated by commas
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Short Circuiting (&& and ||)
+// boolean operators can use any data type, return any data type, and do short-circuiting (short-circuit evaluation)
+console.log('---- OR ----');
+// OR operator returns the first truthy value or the last value if all are falsy
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; // old way of setting default value
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10; // short-circuiting with OR operator to set default value
+console.log(guests2);
+
+console.log('---- AND ----');
+// AND operator returns the first falsy value or the last value if all are truthy
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'jonas');
+
+// check if method/property exists
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+// short-circuiting with AND operator to call a method if it exists
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
