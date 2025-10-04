@@ -60,47 +60,47 @@ const game = {
   },
 };
 
-// 1.
-const [players1, players2] = game.players;
-console.log(players1, players2);
+// // 1.
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
 
-// 2.
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// // 2.
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-// 3.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// // 3.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-console.log(players1Final);
+// // 4.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(players1Final);
 
-// 5.
-// const [team1, draw, team2] = [game.odds.team1, game.odds.x, game.odds.team2];
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(team1, draw, team2);
+// // 5.
+// // const [team1, draw, team2] = [game.odds.team1, game.odds.x, game.odds.team2];
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
 
-// 6.
-const printGoals = function (...playerNames) {
-  let goalCount = 0;
-  for (let i = 0; i < playerNames.length; i++) {
-    for (let j = 0; j < game.scored.length; j++) {
-      if (playerNames[i] === game.scored[j]) goalCount++;
-    }
-  }
-  console.log(`${playerNames}. Goals scored: ${goalCount}.`);
+// // 6.
+// const printGoals = function (...playerNames) {
+//   let goalCount = 0;
+//   for (let i = 0; i < playerNames.length; i++) {
+//     for (let j = 0; j < game.scored.length; j++) {
+//       if (playerNames[i] === game.scored[j]) goalCount++;
+//     }
+//   }
+//   console.log(`${playerNames}. Goals scored: ${goalCount}.`);
 
-  //   console.log(`${playerNames}. Goals scored: ${playerNames.length}.`);
-};
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals('Lewandowski', 'Gnarby', 'Hummels');
+//   //   console.log(`${playerNames}. Goals scored: ${playerNames.length}.`);
+// };
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals('Lewandowski', 'Gnarby', 'Hummels');
 
-// 7.
-// (team1 < team2) is truthy, so && continues to next operation
-team1 < team2 && console.log(`${game.team1} is more likely to win`);
+// // 7.
+// // (team1 < team2) is truthy, so && continues to next operation
+// team1 < team2 && console.log(`${game.team1} is more likely to win`);
 
-// (team1 > team2) is falsey, so && stops
-team1 > team2 && console.log(`${game.team2} is more likely to win`);
+// // (team1 > team2) is falsey, so && stops
+// team1 > team2 && console.log(`${game.team2} is more likely to win`);
