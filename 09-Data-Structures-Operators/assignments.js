@@ -225,7 +225,7 @@ const books = [
   },
 ];
 
-// // Assignment: Destructuring Arrays
+// // Lecture: Destructuring Arrays
 // const [firstBook, secondBook] = books;
 // const [, , thirdBook] = books;
 // console.log(firstBook, secondBook, thirdBook);
@@ -242,7 +242,7 @@ const books = [
 //   ratingStars;
 
 // // -------------------------------------------------------------------------------------------------------------
-// // Assignment: Destructuring Objects
+// // Lecture: Destructuring Objects
 // const { title, author, ISBN } = books[0];
 // console.log(title, author, ISBN);
 
@@ -280,7 +280,7 @@ const books = [
 // printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 
 // // -------------------------------------------------------------------------------------------------------------
-// // Assignment: The Spread Operator
+// // Lecture: The Spread Operator
 // const bookAuthors = [...books[0].author, ...books[1].author];
 // console.log(bookAuthors);
 
@@ -290,7 +290,7 @@ const books = [
 // spellWord('JavaScript');
 
 // // -------------------------------------------------------------------------------------------------------------
-// // Assignment: Rest Pattern and Parameters
+// // Lecture: Rest Pattern and Parameters
 // const [mainKeyword, ...rest] = books[0].keywords; // destructuring array
 // console.log(mainKeyword, rest);
 
@@ -303,7 +303,7 @@ const books = [
 // printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 
 // -------------------------------------------------------------------------------------------------------------
-// Assignment: The Nullish Coalescing Operator (??)
+// Lecture: The Nullish Coalescing Operator (??)
 // const printMissingOnlineContentBooks = function () {
 //   for (let i = 0; i < books.length; i++) {
 //     books[i].onlineContent ??
@@ -313,3 +313,32 @@ const books = [
 //   }
 // };
 // printMissingOnlineContentBooks();
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Logical Assignment Operators
+const setMissingEditionBooks = function () {
+  for (let i = 0; i < books.length; i++) {
+    books[i].edition ??
+      console.log(`Setting edition of "${books[i].title}" to 1`);
+    books[i].edition ??= 1;
+  }
+};
+setMissingEditionBooks();
+
+const reassignHighlightedBooks = function () {
+  for (let i = 0; i < books.length; i++) {
+    // first implementation
+    // if (4.2 > books[i].thirdParty.goodreads.rating) {
+    //   books[i].highlighted &&= false;
+    //   console.log(`Reset highlight of "${books[i].title}"`);
+    // }
+
+    // if highlighted property is missing, it is not created
+    // if highlighted property is already false, right-side operation is not performed
+    // if highlighted property is true, the result of right-side operation is assigned
+    books[i].highlighted &&= !(4.2 > books[i].thirdParty.goodreads.rating);
+    if (books[i].highlighted === false)
+      console.log(`Reset highlight of "${books[i].title}"`);
+  }
+};
+reassignHighlightedBooks();
