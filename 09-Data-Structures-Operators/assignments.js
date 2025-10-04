@@ -358,24 +358,24 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Looping Arrays: The for-of Loop
-let pageSum = 0;
-for (const book of books) {
-  pageSum += book.pages;
-}
-console.log(pageSum);
+// let pageSum = 0;
+// for (const book of books) {
+//   pageSum += book.pages;
+// }
+// console.log(pageSum);
 
-const allAuthors = [];
-for (const book of books) {
-  if (typeof book.author === 'string') {
-    allAuthors.push(book.author);
-  } else if (typeof book.author === 'object') {
-    for (const author of book.author) {
-      allAuthors.push(author);
-    }
-  }
-}
-console.log(allAuthors);
+// const allAuthors = [];
+// for (const book of books) {
+//   if (typeof book.author === 'string') {
+//     allAuthors.push(book.author);
+//   } else if (typeof book.author === 'object') {
+//     for (const author of book.author) {
+//       allAuthors.push(author);
+//     }
+//   }
+// }
+// console.log(allAuthors);
 
-for (const [i, el] of allAuthors.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// for (const [i, el] of allAuthors.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }

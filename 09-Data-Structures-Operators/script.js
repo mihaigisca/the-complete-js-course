@@ -22,6 +22,21 @@ const mexicanFoods = new Set([
   'garlic',
 ]);
 
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -30,20 +45,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  openingHours,
 
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -364,3 +366,22 @@ const restaurant = {
 // for (const [i, el] of menu.entries()) {
 //   console.log(`${i + 1}: ${el}`);
 // }
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecutre: Enhanced Object Literals
+// 1. a nested object can be defined outside the parent object
+// 2. it is not required to define a method using function keyword
+// 3. property names can be computated (helpful when programatically set)
+const nestedObject = {};
+const parentObject = {
+  // 3.
+  ['monday']: '9-18',
+
+  // 1.
+  //   nestedObject: {},
+  nestedObject,
+
+  // 2.
+  //   someMethod: function () {},
+  someMethod() {},
+};
