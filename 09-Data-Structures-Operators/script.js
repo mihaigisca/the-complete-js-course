@@ -302,13 +302,13 @@ const restaurant = {
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: The Nullish Coalescing Operator (??)
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests); // result is 10, as 0 is a falsey value
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests); // result is 10, as 0 is a falsey value
 
-// nullish coalescing operator (null and undefined only) to set default value
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect); // result is 0, as 0 is NOT a nullish value
+// // nullish coalescing operator (null and undefined only) to set default value
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect); // result is 0, as 0 is NOT a nullish value
 
-const guestNullish = restaurant.nullishGuests ?? 10;
-console.log(guestNullish); // result is 10, as nullishGuests is undefined
+// const guestNullish = restaurant.nullishGuests ?? 10;
+// console.log(guestNullish); // result is 10, as nullishGuests is undefined
