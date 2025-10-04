@@ -304,16 +304,16 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Short Circuiting (&& and ||)
-const hasExamplesInJava = function (book) {
-  return book.programmingLanguage === 'Java' || 'no data available';
-};
-console.log(hasExamplesInJava(books[0]));
-console.log(hasExamplesInJava(books[1]));
+// const hasExamplesInJava = function (book) {
+//   return book.programmingLanguage === 'Java' || 'no data available';
+// };
+// console.log(hasExamplesInJava(books[0]));
+// console.log(hasExamplesInJava(books[1]));
 
-for (let i = 0; i < books.length; i++) {
-  books[i].onlineContent &&
-    console.log(`"${books[i].title}" provides online content`);
-}
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent &&
+//     console.log(`"${books[i].title}" provides online content`);
+// }
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: The Nullish Coalescing Operator (??)
