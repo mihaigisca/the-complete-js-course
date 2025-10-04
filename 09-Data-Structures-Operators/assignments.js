@@ -316,29 +316,29 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Logical Assignment Operators
-const setMissingEditionBooks = function () {
-  for (let i = 0; i < books.length; i++) {
-    books[i].edition ??
-      console.log(`Setting edition of "${books[i].title}" to 1`);
-    books[i].edition ??= 1;
-  }
-};
-setMissingEditionBooks();
+// const setMissingEditionBooks = function () {
+//   for (let i = 0; i < books.length; i++) {
+//     books[i].edition ??
+//       console.log(`Setting edition of "${books[i].title}" to 1`);
+//     books[i].edition ??= 1;
+//   }
+// };
+// setMissingEditionBooks();
 
-const reassignHighlightedBooks = function () {
-  for (let i = 0; i < books.length; i++) {
-    // first implementation
-    // if (4.2 > books[i].thirdParty.goodreads.rating) {
-    //   books[i].highlighted &&= false;
-    //   console.log(`Reset highlight of "${books[i].title}"`);
-    // }
+// const reassignHighlightedBooks = function () {
+//   for (let i = 0; i < books.length; i++) {
+//     // first implementation
+//     // if (4.2 > books[i].thirdParty.goodreads.rating) {
+//     //   books[i].highlighted &&= false;
+//     //   console.log(`Reset highlight of "${books[i].title}"`);
+//     // }
 
-    // if highlighted property is missing, it is not created
-    // if highlighted property is already false, right-side operation is not performed
-    // if highlighted property is true, the result of right-side operation is assigned
-    books[i].highlighted &&= !(4.2 > books[i].thirdParty.goodreads.rating);
-    if (books[i].highlighted === false)
-      console.log(`Reset highlight of "${books[i].title}"`);
-  }
-};
-reassignHighlightedBooks();
+//     // if highlighted property is missing, it is not created
+//     // if highlighted property is already false, right-side operation is not performed
+//     // if highlighted property is true, the result of right-side operation is assigned
+//     books[i].highlighted &&= !(4.2 > books[i].thirdParty.goodreads.rating);
+//     if (books[i].highlighted === false)
+//       console.log(`Reset highlight of "${books[i].title}"`);
+//   }
+// };
+// reassignHighlightedBooks();
