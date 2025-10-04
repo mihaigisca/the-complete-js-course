@@ -347,20 +347,20 @@ const restaurant = {
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Looping Arrays: The for-of Loop
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// automatically iterates through all the items of the array
-for (const item of menu) {
-  console.log(item);
-}
+// // automatically iterates through all the items of the array
+// for (const item of menu) {
+//   console.log(item);
+// }
 
-// transforms menu items into arrays that also contain position index in array: [0, 'Focaccia']
-for (const item of menu.entries()) {
-  //   console.log(item);
-  console.log(`${item[0] + 1}: ${item[1]}`);
-}
+// // transforms menu items into arrays that also contain position index in array: [0, 'Focaccia']
+// for (const item of menu.entries()) {
+//   //   console.log(item);
+//   console.log(`${item[0] + 1}: ${item[1]}`);
+// }
 
-// destructure array directly in condition
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// // destructure array directly in condition
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
