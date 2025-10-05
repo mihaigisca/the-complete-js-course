@@ -22,16 +22,18 @@ const mexicanFoods = new Set([
   'garlic',
 ]);
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
 const openingHours = {
-  thu: {
+  [weekdays[3]]: {
     open: 12,
     close: 22,
   },
-  fri: {
+  [weekdays[4]]: {
     open: 11,
     close: 23,
   },
-  sat: {
+  [weekdays[5]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -369,19 +371,58 @@ const restaurant = {
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecutre: Enhanced Object Literals
-// 1. a nested object can be defined outside the parent object
-// 2. it is not required to define a method using function keyword
-// 3. property names can be computated (helpful when programatically set)
-const nestedObject = {};
-const parentObject = {
-  // 3.
-  ['monday']: '9-18',
+// // 1. a nested object can be defined outside the parent object
+// // 2. it is not required to define a method using function keyword
+// // 3. property names can be computated (helpful when programatically set)
+// const nestedObject = {};
+// const parentObject = {
+//   // 3.
+//   ['monday']: '9-18',
 
-  // 1.
-  //   nestedObject: {},
-  nestedObject,
+//   // 1.
+//   //   nestedObject: {},
+//   nestedObject,
 
-  // 2.
-  //   someMethod: function () {},
-  someMethod() {},
-};
+//   // 2.
+//   //   someMethod: function () {},
+//   someMethod() {},
+// };
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecutre: Optional Chaining (?.)
+// console.log(restaurant.openingHours.mon); // no such property -> undefined
+// console.log(restaurant.openingHours.mon.open) // error trying to access open on undefined mon
+
+// without optional chaining
+if (
+  restaurant.openingHours &&
+  restaurant.openingHours.mon &&
+  restaurant.openingHours.open
+) {
+  restaurant.openingHours.mon.open;
+}
+
+// optional chaining - accessing properties only if they exists
+
+// Variables
+console.log(restaurant.openingHours?.mon); // only access mon if exists, otherwise return undefined
+console.log(restaurant.openingHours.mon?.open); // only access open if exists, otherwise return undefined
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // if you want to use a variable name as the property name, use the brackets notation
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.() ?? 'Method does not exist');
+
+// Arrays
+let users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+console.log(users[0]?.name ?? 'User array empty');
+
+users = [];
+console.log(users[0]?.name ?? 'User array empty');
