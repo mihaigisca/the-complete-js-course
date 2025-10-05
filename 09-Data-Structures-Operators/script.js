@@ -390,39 +390,39 @@ const restaurant = {
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecutre: Optional Chaining (?.)
-// console.log(restaurant.openingHours.mon); // no such property -> undefined
-// console.log(restaurant.openingHours.mon.open) // error trying to access open on undefined mon
+// // console.log(restaurant.openingHours.mon); // no such property -> undefined
+// // console.log(restaurant.openingHours.mon.open) // error trying to access open on undefined mon
 
-// without optional chaining
-if (
-  restaurant.openingHours &&
-  restaurant.openingHours.mon &&
-  restaurant.openingHours.open
-) {
-  restaurant.openingHours.mon.open;
-}
+// // without optional chaining
+// if (
+//   restaurant.openingHours &&
+//   restaurant.openingHours.mon &&
+//   restaurant.openingHours.open
+// ) {
+//   restaurant.openingHours.mon.open;
+// }
 
-// optional chaining - accessing properties only if they exists
+// // optional chaining - accessing properties only if they exists
 
-// Variables
-console.log(restaurant.openingHours?.mon); // only access mon if exists, otherwise return undefined
-console.log(restaurant.openingHours.mon?.open); // only access open if exists, otherwise return undefined
+// // Variables
+// console.log(restaurant.openingHours?.mon); // only access mon if exists, otherwise return undefined
+// console.log(restaurant.openingHours.mon?.open); // only access open if exists, otherwise return undefined
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-for (const day of days) {
-  // if you want to use a variable name as the property name, use the brackets notation
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day} we open at ${open}`);
-}
+// for (const day of days) {
+//   // if you want to use a variable name as the property name, use the brackets notation
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
 
-// Methods
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisotto?.() ?? 'Method does not exist');
+// // Methods
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.() ?? 'Method does not exist');
 
-// Arrays
-let users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
-console.log(users[0]?.name ?? 'User array empty');
+// // Arrays
+// let users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+// console.log(users[0]?.name ?? 'User array empty');
 
-users = [];
-console.log(users[0]?.name ?? 'User array empty');
+// users = [];
+// console.log(users[0]?.name ?? 'User array empty');
