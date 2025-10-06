@@ -405,31 +405,31 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecutre: Optional Chaining (?.)
-const getFirstKeyword = function (book) {
-  // first check is for the keyword property
-  // second check is for existence of element 0
-  return book?.keywords?.[0];
-};
+// const getFirstKeyword = function (book) {
+//   // first check is for the keyword property
+//   // second check is for existence of element 0
+//   return book?.keywords?.[0];
+// };
 
-for (const book of books) {
-  console.log(`First keyword of "${book.title}": ${getFirstKeyword(book)}`);
-}
+// for (const book of books) {
+//   console.log(`First keyword of "${book.title}": ${getFirstKeyword(book)}`);
+// }
 
-const bookWithNoKeywordsProperty = {
-  title: 'Keywords or how to handle negotiation',
-};
-console.log(
-  `First keyword of "${bookWithNoKeywordsProperty.title}": ${getFirstKeyword(
-    bookWithNoKeywordsProperty
-  )}`
-);
+// const bookWithNoKeywordsProperty = {
+//   title: 'Keywords or how to handle negotiation',
+// };
+// console.log(
+//   `First keyword of "${bookWithNoKeywordsProperty.title}": ${getFirstKeyword(
+//     bookWithNoKeywordsProperty
+//   )}`
+// );
 
-const bookWithEmptyKeywords = {
-  title: 'Magic keywords and where to find them',
-  keywords: [],
-};
-console.log(
-  `First keyword of "${bookWithEmptyKeywords.title}": ${getFirstKeyword(
-    bookWithEmptyKeywords
-  )}`
-);
+// const bookWithEmptyKeywords = {
+//   title: 'Magic keywords and where to find them',
+//   keywords: [],
+// };
+// console.log(
+//   `First keyword of "${bookWithEmptyKeywords.title}": ${getFirstKeyword(
+//     bookWithEmptyKeywords
+//   )}`
+// );

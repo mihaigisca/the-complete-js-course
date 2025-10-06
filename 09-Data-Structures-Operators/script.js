@@ -426,3 +426,38 @@ const restaurant = {
 
 // users = [];
 // console.log(users[0]?.name ?? 'User array empty');
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecutre: Looping Objects: Object Keys, Values, and Entries
+// Looping over property names (aka keys)
+// Object.keys(obj) returns an array of names (strings) of top-level properties
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+// console.log(`We are open for ${properties.length} days per week!`);
+let openStr = `We are open for ${properties.length} days per week: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+
+console.log(openStr);
+
+// Looping over property values
+// Object.values(obj) returns an array of objects that the top-level properties contain
+const values = Object.values(openingHours);
+console.log(values);
+
+// Looping over object entries
+// Object.entries(obj) returns an array of entries, each entry is itself an array of property-value pair
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// for (const x of entries) {
+//   console.log(x);
+// }
+
+// key, value
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
