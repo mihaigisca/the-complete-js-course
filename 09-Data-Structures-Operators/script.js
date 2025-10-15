@@ -461,3 +461,31 @@ const restaurant = {
 // for (const [day, { open, close }] of entries) {
 //   console.log(`On ${day} we open at ${open} and close at ${close}`);
 // }
+
+// Lecture: Sets
+// - collection of unique values
+// - expects iterables, is one itself
+// - order is irrelevant
+const orders = ['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta'];
+const ordersSet = new Set(orders);
+console.log(ordersSet);
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+console.log(ordersSet.size);
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+// because order is irrelevant, and set is not used to retrieve a value,
+// the only way to check whether set contains a value is by using the 'has' method
+for (const order of ordersSet) {
+  console.log(order);
+}
+// use spread operator to retrieve an array
+const ordersUnique = [...ordersSet];
+console.log(ordersUnique);
+console.log(new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta']).size);
+console.log(new Set('Example'));
+console.log(new Set('Example').size);
+// use sets when working with unique values, arrays otherwise

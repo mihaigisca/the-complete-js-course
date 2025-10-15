@@ -130,53 +130,53 @@ GOOD LUCK 😀
 */
 
 // 1.
-for (const [index, name] of game.scored.entries()) {
-  console.log(`Goal ${index + 1}: ${name}`);
-}
+// for (const [index, name] of game.scored.entries()) {
+//   console.log(`Goal ${index + 1}: ${name}`);
+// }
 
-// 2.
+// // 2.
+// // let averageOdd = 0;
+// // for (const odd of Object.values(game.odds)) {
+// //   averageOdd += odd;
+// // }
+// // console.log(`Average odd: ${(averageOdd /= Object.values(game.odds).length)}`);
+
+// const odds = Object.values(game.odds);
 // let averageOdd = 0;
-// for (const odd of Object.values(game.odds)) {
+// for (const odd of odds) {
 //   averageOdd += odd;
 // }
-// console.log(`Average odd: ${(averageOdd /= Object.values(game.odds).length)}`);
+// console.log(`Average odd: ${(averageOdd /= odds.length)}`);
 
-const odds = Object.values(game.odds);
-let averageOdd = 0;
-for (const odd of odds) {
-  averageOdd += odd;
-}
-console.log(`Average odd: ${(averageOdd /= odds.length)}`);
+// // 3.
+// // for (const key of Object.keys(game.odds)) {
+// //   console.log(`Odd of victory ${game[key]}: ${game.odds[key]}`);
+// // }
 
-// 3.
-// for (const key of Object.keys(game.odds)) {
-//   console.log(`Odd of victory ${game[key]}: ${game.odds[key]}`);
-// }
+// // for (const entry of Object.entries(game.odds)) {
+// //   console.log(`Odd of victory ${game[entry[0]]}: ${entry[1]}`);
+// // }
 
-// for (const entry of Object.entries(game.odds)) {
-//   console.log(`Odd of victory ${game[entry[0]]}: ${entry[1]}`);
-// }
+// // for (const [team, odd] of Object.entries(game.odds)) {
+// //   if (team === 'x') {
+// //     console.log(`Odd of draw: ${odd}`);
+// //   } else {
+// //     console.log(`Odd of victory ${game[team]}: ${odd}`);
+// //   }
+// // }
 
 // for (const [team, odd] of Object.entries(game.odds)) {
-//   if (team === 'x') {
-//     console.log(`Odd of draw: ${odd}`);
-//   } else {
-//     console.log(`Odd of victory ${game[team]}: ${odd}`);
-//   }
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr}: ${odd}`);
 // }
 
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr}: ${odd}`);
-}
-
-// Bonus.
-const scorers = {};
-for (const scorer of game.scored.values()) {
-  if (scorers[scorer] === undefined) {
-    scorers[scorer] = 1;
-  } else {
-    scorers[scorer] += 1;
-  }
-}
-console.log(scorers);
+// // Bonus.
+// const scorers = {};
+// for (const scorer of game.scored.values()) {
+//   if (scorers[scorer] === undefined) {
+//     scorers[scorer] = 1;
+//   } else {
+//     scorers[scorer] += 1;
+//   }
+// }
+// console.log(scorers);
