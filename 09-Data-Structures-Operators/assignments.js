@@ -506,3 +506,14 @@ const books = [
 
 // // 13.5
 // if (bookMap.has('author')) console.log('The author of the book is known');
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Maps: Iteration
+// 14.1
+const firstBookMap = new Map(Object.entries(books[0]));
+console.log(firstBookMap);
+
+// 14.2
+for (const [key, value] of firstBookMap) {
+  if (typeof value === 'number') console.log(key);
+}
