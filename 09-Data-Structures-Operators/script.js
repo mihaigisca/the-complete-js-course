@@ -516,40 +516,40 @@ const restaurant = {
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Maps: Fundamentals
-const rest = new Map();
-rest.set('name', 'Classico Italiano');
-rest.set(1, 'Firenze, Italy');
-rest.set(2, 'Lisbon, Portugal');
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// rest.set(2, 'Lisbon, Portugal');
 
-// set method:
-// add new key-value pair to map
-// return updated map (allows chaining set methods)
-console.log(
-  rest
-    .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-    .set('open', 11)
-    .set('close', 23)
-    .set(true, 'we are open ^_^')
-    .set(false, 'we are closed :(')
-);
+// // set method:
+// // add new key-value pair to map
+// // return updated map (allows chaining set methods)
+// console.log(
+//   rest
+//     .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//     .set('open', 11)
+//     .set('close', 23)
+//     .set(true, 'we are open ^_^')
+//     .set(false, 'we are closed :(')
+// );
 
-// get method: get value by key
-console.log(rest.get('name'));
-console.log(rest.get(true));
-console.log(rest.get(1));
+// // get method: get value by key
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-const time = 21;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// const time = 21;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-// has method: check if there is such key
-console.log(rest.has('categories'));
-// delete method: delete entry by key
-rest.delete(2);
-console.log(rest);
-console.log(rest.size);
-// rest.clear(); // delete all entries
+// // has method: check if there is such key
+// console.log(rest.has('categories'));
+// // delete method: delete entry by key
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+// // rest.clear(); // delete all entries
 
-// use objects as map elements
-const arr = [1, 2];
-rest.set(arr, 'test');
-console.log(rest.get(arr));
+// // use objects as map elements
+// const arr = [1, 2];
+// rest.set(arr, 'test');
+// console.log(rest.get(arr));
