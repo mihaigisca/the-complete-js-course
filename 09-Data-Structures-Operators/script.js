@@ -490,3 +490,26 @@ const restaurant = {
 // console.log(new Set('Example'));
 // console.log(new Set('Example').size);
 // // use sets when working with unique values, arrays otherwise
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: New Operations to Make Sets Useful!
+// ES 2025 added new 7 methods to sets
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log('Set intersection: ', commonFoods);
+console.log([...commonFoods]);
+
+const allFoods = italianFoods.union(mexicanFoods);
+console.log('Set union: ', allFoods);
+const allFoodsManual = new Set([...italianFoods, ...mexicanFoods]);
+console.log('Combine using spread', allFoodsManual);
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log('Set diff italian: ', uniqueItalianFoods);
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log('Set diff mexican: ', uniqueMexicanFoods);
+
+const uniqueItalianAndMexicanFoods =
+  italianFoods.symmetricDifference(mexicanFoods);
+console.log('Set symmetric diff: ', uniqueItalianAndMexicanFoods);
+
+// remaining methods: isDisjointFrom, isSubsetOf, isSupersetOf

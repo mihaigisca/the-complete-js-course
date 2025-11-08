@@ -455,30 +455,30 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecutre: Sets
-// 1.
-const allKeywords = [];
+// // 1.
+// const allKeywords = [];
 
-for (const book of books) {
-  allKeywords.push(...book.keywords);
-}
-console.log(allKeywords.size, allKeywords);
+// for (const book of books) {
+//   allKeywords.push(...book.keywords);
+// }
+// console.log(allKeywords.size, allKeywords);
 
-// 2.
-const uniqueKeywords = new Set(allKeywords);
-console.log(uniqueKeywords.size, uniqueKeywords);
+// // 2.
+// const uniqueKeywords = new Set(allKeywords);
+// console.log(uniqueKeywords.size, uniqueKeywords);
 
-// 3.
-uniqueKeywords.add('coding');
-uniqueKeywords.add('science');
-console.log(uniqueKeywords.size, uniqueKeywords);
+// // 3.
+// uniqueKeywords.add('coding');
+// uniqueKeywords.add('science');
+// console.log(uniqueKeywords.size, uniqueKeywords);
 
-// 4.
-uniqueKeywords.delete('business');
-console.log(uniqueKeywords.size, uniqueKeywords);
+// // 4.
+// uniqueKeywords.delete('business');
+// console.log(uniqueKeywords.size, uniqueKeywords);
 
-const uniqueKeywordsArr = [...uniqueKeywords];
-console.log(uniqueKeywordsArr.length, uniqueKeywordsArr);
+// const uniqueKeywordsArr = [...uniqueKeywords];
+// console.log(uniqueKeywordsArr.length, uniqueKeywordsArr);
 
-// 5.
-uniqueKeywords.clear();
-console.log(uniqueKeywords.size, uniqueKeywords);
+// // 5.
+// uniqueKeywords.clear();
+// console.log(uniqueKeywords.size, uniqueKeywords);
