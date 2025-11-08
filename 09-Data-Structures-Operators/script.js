@@ -553,3 +553,43 @@ const restaurant = {
 // const arr = [1, 2];
 // rest.set(arr, 'test');
 // console.log(rest.get(arr));
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Maps: Iteration
+const question = new Map([
+  ['question', 'What is the best breakfast?'],
+  [1, 'fruits'],
+  [2, 'porridge'],
+  [3, 'meat/eggs'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+
+// map has same structure as Object.entries(...)
+console.log(Object.entries(openingHours));
+// convert object to map
+console.log(new Map(Object.entries(openingHours)));
+
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+const answer = Number(prompt('Your answer: '));
+console.log(answer);
+
+// if (answer === question.get('correct')) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
+
+console.log(question.get(question.get('correct') === answer));
+
+// convert map to array
+console.log([...question]);
+// console.log([...question.entries()]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
