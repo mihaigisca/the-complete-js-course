@@ -617,3 +617,38 @@ const restaurant = {
 // -- easy to iterate and compute size
 // -- use to simply map keys to values
 // -- use for non-string keys
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Working With Strings - Part 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log('B737'[0], 'B737'.length);
+console.log(airline.length, airline.indexOf('r'), airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'), airline.lastIndexOf('portugal')); // case sensitive
+console.log(airline.slice(4)); // extract (new) substring at 4
+console.log(airline.slice(4, 7)); // extract (new) substring at 4 up to 7
+console.log(airline.slice(0, airline.indexOf(' '))); // extract first word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // extract last word
+console.log(airline.slice(-2)); // (-) -> start from the end
+console.log(airline.slice(1, -1));
+const checkMiddleSeat = function (seat) {
+  // middle seat in small planes B and E
+  // const column = seat[seat.length - 1].toUpperCase();
+  const column = seat.slice(-1).toUpperCase();
+  console.log(
+    column === 'B' || column === 'E'
+      ? `${seat} is middle seat`
+      : `${seat} is not middle seat`
+  );
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+// boxing - converting string into String object when calling methods on it
+console.log(
+  typeof 'example',
+  typeof new String('example'),
+  typeof new String('example').slice(1)
+);

@@ -205,42 +205,42 @@ GOOD LUCK :D
 
  */
 
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-// 1.
-const events = new Set(gameEvents.values());
-console.log([...events]);
+// // 1.
+// const events = new Set(gameEvents.values());
+// console.log([...events]);
 
-// 2.
-const gameEventsClone = structuredClone(gameEvents);
-console.log(gameEventsClone);
-gameEvents.delete(64);
-console.log(gameEvents);
+// // 2.
+// const gameEventsClone = structuredClone(gameEvents);
+// console.log(gameEventsClone);
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// 3.
+// // 3.
+// // console.log(
+// //   `An event happened, on average, every ${90 / gameEventsClone.size} minutes`
+// // );
+// // const time = [...gameEventsClone.keys()][gameEventsClone.size - 1];
+// const time = [...gameEventsClone.keys()].pop();
 // console.log(
-//   `An event happened, on average, every ${90 / gameEventsClone.size} minutes`
+//   `An event happened, on average, every ${time / gameEventsClone.size} minutes`
 // );
-// const time = [...gameEventsClone.keys()][gameEventsClone.size - 1];
-const time = [...gameEventsClone.keys()].pop();
-console.log(
-  `An event happened, on average, every ${time / gameEventsClone.size} minutes`
-);
 
-// 4.
-for (const [key, value] of gameEventsClone.entries()) {
-  const half = key > 45 ? 'SECOND' : 'FIRST';
-  console.log(`[${half} HALF] ${key}: ${value}`);
-}
+// // 4.
+// for (const [key, value] of gameEventsClone.entries()) {
+//   const half = key > 45 ? 'SECOND' : 'FIRST';
+//   console.log(`[${half} HALF] ${key}: ${value}`);
+// }
