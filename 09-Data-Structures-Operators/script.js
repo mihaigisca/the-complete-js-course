@@ -593,3 +593,27 @@ const restaurant = {
 // // console.log([...question.entries()]);
 // console.log([...question.keys()]);
 // console.log([...question.values()]);
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Summary: Which Data Structure to Use?
+// Data sources: from program itself, from UI (user input), external sources (e.g., web API)
+// data collection -> data structures -> 4 types: object, array, set, map
+// simple list -> array/set
+// - array:
+// -- ordered list
+// -- data manipulation
+// - set:
+// -- unique values
+// -- remove duplicates
+// -- high-performance
+// key/value pairs -> object/map (keys describe values)
+// - object:
+// -- easier to write and access values with . and []
+// -- use to include functions (methods)
+// -- use when working with JSON
+// - map:
+// -- better performance,
+// -- keys can have any data type,
+// -- easy to iterate and compute size
+// -- use to simply map keys to values
+// -- use for non-string keys
