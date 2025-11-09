@@ -517,3 +517,25 @@ const books = [
 // for (const [key, value] of firstBookMap) {
 //   if (typeof value === 'number') console.log(key);
 // }
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Working With Strings - Part 1
+// 15.1
+console.log(
+  `${books[0].ISBN[6]}${books[0].ISBN[4]}${books[0].ISBN[9]}${books[0].ISBN[8]}`
+);
+
+// 15.2
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'));
+
+// 15.3
+console.log(quote.slice(quote.indexOf('boxing')));
+
+// 15.4
+const isContributor = function (author) {
+  return author.indexOf('(Contributor)') !== -1;
+};
+console.log(isContributor('Julie Sussman (Contributor)'));
+console.log(isContributor('Robert Sedgewick'));
