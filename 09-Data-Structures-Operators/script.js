@@ -652,3 +652,51 @@ const restaurant = {
 //   typeof new String('example'),
 //   typeof new String('example').slice(1)
 // );
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Working With Strings - Part 2
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase(), airline.toUpperCase());
+
+// fix name capitalization
+const passenger = 'jOnAs';
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passenger[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+console.log(passenger[0].toUpperCase() + passenger.slice(1).toLowerCase());
+
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.Io  \n'; // \n is a whitespace
+console.log(email === loginEmail.toLowerCase().trim());
+
+// replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement = 'Door 1! Door 1!';
+// replace - replaces only first occurrence
+console.log(announcement.replace('Door', 'Gate'));
+// replaceAll - all occurrences
+console.log(announcement.replaceAll('Door', 'Gate'));
+// replace with regular expression
+console.log(announcement.replace(/Door/g, 'Gate'));
+
+// bools
+const plane = 'Airbus A320neo';
+console.log(
+  plane.includes('A320'),
+  plane.includes('Boeing'),
+  plane.startsWith('Air'),
+  plane.endsWith('neo')
+);
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  baggage.includes('knife') || baggage.includes('gun')
+    ? console.log('Freeze!')
+    : console.log('Have a good one!');
+};
+checkBaggage('I have A, B, C and a knife.');
+checkBaggage('I have D, E and F.');
+checkBaggage('I have H, a gun and I.');
