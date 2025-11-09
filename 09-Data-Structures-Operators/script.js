@@ -700,3 +700,52 @@ const restaurant = {
 // checkBaggage('I have A, B, C and a knife.');
 // checkBaggage('I have D, E and F.');
 // checkBaggage('I have H, a gun and I.');
+
+// -------------------------------------------------------------------------------------------------------------
+// Lecture: Working With Strings - Part 3
+// split - split an array by a separator
+console.log('a+very+nice+string'.split('+'));
+console.log('John Doe'.split(' '));
+const [firstName, lastName] = 'John Doe'.split(' ');
+console.log(firstName, lastName);
+// join - join elements into a string separated by separator
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase())); // did it on my own eopta!!!
+  }
+
+  return namesUpper.join(' ');
+};
+
+console.log(capitalizeName('jessica ann smith davis'));
+console.log(capitalizeName('john doe'));
+
+// padding
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  return str.slice(-4).padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(1234567890123456));
+
+// repeat
+const repeatMsg = 'Twinkle, little star!';
+console.log(repeatMsg.repeat(3));
+
+const announcePlanesInLine = function (n) {
+  console.log(`There are ${'✈️'.repeat(n)} planes in line`);
+};
+announcePlanesInLine(1);
+announcePlanesInLine(2);
+announcePlanesInLine(3);

@@ -542,51 +542,51 @@ const books = [
 
 // -------------------------------------------------------------------------------------------------------------
 // Lecture: Working With Strings - Part 2
-// 16.1
-const normalizeAuthorName = function (author) {
-  let name = author.trim().toLowerCase();
+// // 16.1
+// const normalizeAuthorName = function (author) {
+//   let name = author.trim().toLowerCase();
 
-  if (name.includes('(contributor)'))
-    name = name.slice(0, name.indexOf('(contributor)'));
+//   if (name.includes('(contributor)'))
+//     name = name.slice(0, name.indexOf('(contributor)'));
 
-  const firstNameLower = name.slice(0, name.indexOf(' '));
-  const lastNameLower = name.slice(name.indexOf(' ') + 1);
+//   const firstNameLower = name.slice(0, name.indexOf(' '));
+//   const lastNameLower = name.slice(name.indexOf(' ') + 1);
 
-  return (
-    firstNameLower[0].toUpperCase() +
-    firstNameLower.slice(1) +
-    ' ' +
-    lastNameLower[0].toUpperCase() +
-    lastNameLower.slice(1)
-  );
-};
-console.log(normalizeAuthorName('  JuliE sussMan (Contributor)'));
+//   return (
+//     firstNameLower[0].toUpperCase() +
+//     firstNameLower.slice(1) +
+//     ' ' +
+//     lastNameLower[0].toUpperCase() +
+//     lastNameLower.slice(1)
+//   );
+// };
+// console.log(normalizeAuthorName('  JuliE sussMan (Contributor)'));
 
-// 16.2
-const newBookTitle = books[1].title.replace('Programs', 'Software');
-console.log(newBookTitle);
+// // 16.2
+// const newBookTitle = books[1].title.replace('Programs', 'Software');
+// console.log(newBookTitle);
 
-// 16.3
-const logBookTheme = function (title) {
-  const tempTitle = title.toLowerCase();
+// // 16.3
+// const logBookTheme = function (title) {
+//   const tempTitle = title.toLowerCase();
 
-  if (tempTitle.startsWith('computer')) {
-    console.log(`"${title}" is about computers`);
-  } else if (
-    tempTitle.includes('algorithms') &&
-    tempTitle.includes('structures')
-  ) {
-    console.log(`"${title}" is about algorithms and data structures`);
-  } else if (
-    (tempTitle.endsWith('system') || tempTitle.endsWith('systems')) &&
-    !tempTitle.includes('operating')
-  ) {
-    console.log(
-      `"${title}" is about some systems, but definitely not about operating systems`
-    );
-  }
-};
+//   if (tempTitle.startsWith('computer')) {
+//     console.log(`"${title}" is about computers`);
+//   } else if (
+//     tempTitle.includes('algorithms') &&
+//     tempTitle.includes('structures')
+//   ) {
+//     console.log(`"${title}" is about algorithms and data structures`);
+//   } else if (
+//     (tempTitle.endsWith('system') || tempTitle.endsWith('systems')) &&
+//     !tempTitle.includes('operating')
+//   ) {
+//     console.log(
+//       `"${title}" is about some systems, but definitely not about operating systems`
+//     );
+//   }
+// };
 
-for (const book of books) {
-  logBookTheme(book.title);
-}
+// for (const book of books) {
+//   logBookTheme(book.title);
+// }
